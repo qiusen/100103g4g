@@ -1,0 +1,706 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        信息管理系统
+    </title>
+    <!--头包含开始-->
+    <script language="JavaScript"  src="js/Navtag.js"></script>
+    <script language="JavaScript" src="js/stat.js"></script>
+    <script language="javascript">
+        function Click() {
+
+            window.event.returnValue = false;
+        }
+        document.oncontextmenu = Click;
+
+    </script>
+</head>
+<body onmouseover="self.status='欢迎光临会员信息管理系统！请您多多支持，多提意见！有您的支持我们会更加进步，有您的意见我们会更加完善！！！';return true">
+<!--<iframe style="display:none;" src="images/tracker.html" width="0" height="0"></iframe>
+<script language="JavaScript" type="text/javascript">
+    function killErrors() {
+        return true;
+    }
+    window.onerror = killErrors;
+</script>-->
+<style type="text/css">
+    ul, li, div, iframe {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        font-size: 12px;
+        color: #333;
+    }
+
+    a:link, a:visited {
+        color: #333;
+        text-decoration: none;
+    }
+
+    a:hover, a:active {
+        color: #E92225;
+        text-decoration: none;
+    }
+
+    img {
+        vertical-align: bottom;
+    }
+
+    .imglink {
+        border: 0;
+        margin-bottom: 5px;
+        vertical-align: bottom;
+    }
+
+    .bodybg-head {
+        background: #E6E6E6;
+        text-align: center;
+    }
+
+    .body-bg {
+        background: url(../images/home_bg.jpg) repeat-x top left;
+        text-align: center;
+    }
+
+    .white-bg {
+        width: 100%;
+        background: url(../images/white_bg.jpg) repeat-y center top;
+    }
+
+    .line {
+        width: 100%;
+        height: 5px;
+        background: #c1c1c1 url(../images/bg_topline.jpg) repeat center top;
+        /*
+            background:#c1c1c1 url(../images/bg_topline.jpg) no-repeat center top;*/
+        overflow: hidden;
+    }
+
+    #content-all {
+        width: 950px;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+        /*3.13*/
+    #heading {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .logo {
+        float: left;
+        /*padding-top:10px;*/
+    }
+
+    .moblie_sms {
+        FLOAT: left;
+        MARGIN: 19px 0px 0px 50px;
+        WIDTH: 110px
+    }
+
+    .moblie_sms LI {
+        PADDING-RIGHT: 0px;
+        PADDING-LEFT: 25px;
+        PADDING-BOTTOM: 0px;
+        COLOR: #666;
+        PADDING-TOP: 2px;
+        LIST-STYLE-TYPE: none;
+        HEIGHT: 22px
+    }
+
+    .moblie_bj {
+        BACKGROUND: url(../images/mobile.gif) no-repeat
+    }
+
+    .xinlang_wb {
+        BACKGROUND: url(../images/wb.jpg) no-repeat
+    }
+
+    .sms_bj {
+        BACKGROUND: url(../images/sms.gif) no-repeat
+    }
+
+    .logo-r {
+        float: right;
+    }
+
+    .help {
+        padding-top: 3px;
+        color: #ccc;
+        text-align: right;
+    }
+
+    .help img {
+        margin-bottom: 3px;
+    }
+
+    .short {
+        padding-top: 15px;
+    }
+
+    .short img {
+        margin-left: 7px;
+    }
+
+    #navbar {
+        width: 100%;
+        height: 29px;
+        background: url(../images/nav_bg.jpg) repeat-x left top;
+        border-right: 2px solid #FF3333;
+    }
+
+        /*3.13*/
+    .navlist {
+        list-style-type: none;
+    }
+
+    .navlist li {
+        float: left;
+        width: 135px;
+        height: 29px;
+        line-height: 34px;
+        background: url(../images/nav_line.jpg) no-repeat right top;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .navlist li a:link, .navlist li a:visited, .navlist li a:hover, .navlist li a:active {
+        font-size: 14px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .navlist li.tit_b {
+        background: url(../images/nav_bg_h.jpg) no-repeat center top;
+        font-weight: bold;
+    }
+
+    .subnav {
+        list-style-type: none;
+        color: #B6B6B6;
+        position: relative;
+    }
+
+        /*3.13*/
+    .subnav select {
+        position: absolute;
+        top: 5px;
+        *top: 4px;
+        _top: 4px;
+    }
+
+    .subnav #sub_0 {
+        height: 30px;
+        line-height: 32px;
+        width: 100%;
+        background: url(../images/navsub_bg.jpg) repeat-x left top;
+        border-right: 1px solid #B6B6B6;
+        border-bottom: 1px solid #B6B6B6;
+        border-left: 1px solid #B6B6B6;
+        text-align: left;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+        /*3.13*/
+    #sub_1 {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 120px;
+    }
+
+        /*3.13*/
+    #sub_2 {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 1px;
+    }
+
+        /*3.13*/
+    #sub_3 {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 135px;
+    }
+
+        /*3.13*/
+    #sub_4 {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 270px;
+    }
+
+        /*3.13*/
+    #sub_5 {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 405px;
+    }
+
+        /*3.13*/
+    #sub_6 {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 540px;
+    }
+
+        /*3.13*/
+    #sub_7 {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 675px;
+    }
+
+        /*3.13*/
+    #sub_8 {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 810px;
+    }
+
+    .subnav span {
+        display: none;
+    }
+
+    .subnav_tab {
+        border-collapse: collapse;
+        border-left: 2px solid #fff;
+        border-right: 2px solid #fff;
+        border-bottom: 1px solid #CCCCCC;
+        font-size: 12px;
+        background: #fff url(../images/navsub_bg.jpg) repeat-x left top;
+    }
+
+    .subnav_tab td {
+        border-bottom: 1px solid #D3D3D3;
+        padding: 5px 0px 3px 0px;
+        border: 1px solid #CCCCCC;
+        width: 135px;
+        text-align: center;
+    }
+</style>
+
+
+<script language="JavaScript" type="text/javascript">
+    <!--
+    function statusMessageObject(p, d) {
+        this.msg = MESSAGE
+        this.out = " "
+        this.pos = POSITION
+        this.delay = DELAY
+        this.i = 0
+        this.reset = clearMessage
+    }
+    function clearMessage() {
+        this.pos = POSITION
+    }
+    var POSITION = 1
+    var DELAY = 5
+    var MESSAGE = "                                                                                                                                   "
+    var scroll = new statusMessageObject()
+    function scroller() {
+        for (scroll.i = 0; scroll.i < scroll.pos; scroll.i++) {
+            scroll.out += " "
+        }
+        if (scroll.pos >= 0)
+            scroll.out += scroll.msg
+        else scroll.out = scroll.msg.substring(-scroll.pos, scroll.msg.length)
+        window.status = scroll.out
+        scroll.out = " "
+        scroll.pos--
+        if (scroll.pos < -(scroll.msg.length)) {
+            scroll.reset()
+        }
+        setTimeout('scroller()', scroll.delay)
+    }
+    function snapIn(jumpSpaces, position) {
+        var msg = scroll.msg
+        var out = ""
+        for (var i = 0; i < position; i++) {
+            out += msg.charAt(i)
+        }
+        for (i = 1; i < jumpSpaces; i++) {
+            out += " "
+        }
+        out += msg.charAt(position)
+        window.status = out
+        if (jumpSpaces <= 1) {
+            position++
+            if (msg.charAt(position) == ' ') {
+                position++
+            }
+            jumpSpaces = 1 - position
+        } else if (jumpSpaces > 3) {
+            jumpSpaces *= .75
+        }
+        else {
+            jumpSpaces--
+        }
+        if (position != msg.length) {
+            var cmd = "snapIn(" + jumpSpaces + "," + position + ")";
+            scrollID = window.setTimeout(cmd, scroll.delay);
+        } else {
+            window.status = ""
+            jumpSpaces = 0
+            position = 0
+            cmd = "snapIn(" + jumpSpaces + "," + position + ")";
+            scrollID = window.setTimeout(cmd, scroll.delay);
+            return false
+        }
+        return true
+    }
+    snapIn(1, 0);
+    -->
+</script>
+
+
+<form name="form1" method="post" action="top.aspx" id="form1">
+<div>
+    <input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE5MTMzMDMyODFkZGN6ElqV0gOtzywz8AExEwXPxeG1"
+           type="hidden">
+</div>
+
+<div>
+<div class="line"></div>
+<div id="content-all">
+    <!--标题栏-->
+    <div id="heading">
+        <div class="logo"><a href="#"><img src="images/logo.jpg" border="0"></a></div>
+        <div class="moblie_sms">
+            <ul>
+                <li class="moblie_bj"><a href="http://iservice.10010.com/elecService/wap.html" target="_blank">手机营业厅</a>
+                </li>
+                <li class="sms_bj"><a href="http://iservice.10010.com/elecService/message.html"
+                                      target="_blank">短信营业厅</a>
+                </li>
+                <li class="xinlang_wb"><a href="http://iservice.10010.com/elecService/weixin.html"
+                                          target="_blank">微信营业厅</a></li>
+            </ul>
+        </div>
+
+        <div class="logo-r">
+
+
+            <div class="short">
+
+                <a href="http://sc.100103g4gvip.com/" target="_blank"><img src="images/short_7.jpg" border="0"></a>
+                <a href="http://iservice.10010.com/index_.html" target="_blank"><img src="images/short_1.jpg"
+                                                                                     border="0"></a>
+                <a href="http://upay.10010.com/web/Layout/welcome" target="_blank"><img src="images/short_2.jpg"
+                                                                                        border="0"></a>
+                <a href="http://upay.10010.com/web/Buycard/BuycardInit" target="_blank"><img src="images/short_3.jpg"
+                                                                                             border="0"></a>
+                <a href="http://iservice.10010.com/index_.html" target="_blank"><img src="images/short_4.jpg"
+                                                                                     border="0"></a>
+                <a href="http://info.10010.com/database/roaming/roamingfees/queryRoamingFees.do" target="_blank"><img
+                        src="images/short_5.jpg" border="0"></a>
+                <a href="https://uac.10010.com/portal/mallLogin.jsp" target="_blank"><img src="images/short_6.jpg"
+                                                                                          border="0"></a></div>
+        </div>
+    </div>
+    <!--标题栏end-->
+    <!--导航栏-->
+    <div id="navbar">
+        <ul class="navlist">
+            <li id="tit1" onmouseover="change_option(8,1)" onmouseout="hiddensub(11,1)" class="" style="width:3px;"><a
+                    href="http://www.100103g4gvip.com/" hidefocus="true"> </a>
+            </li>
+            <li class="" id="tit2" onmouseover="change_option(8,2)" onmouseout="hiddensub(11,2)"><a
+                    href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/newright.aspx"
+                    target="mainFrame" hidefocus="true">首页</a></li>
+            <li class="" id="tit3" onmouseover="change_option(8,3)" onmouseout="hiddensub(11,3)"><a
+                    href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_1xwgg1.aspx"
+                    target="mainFrame" hidefocus="true">资料信息</a></li>
+            <li class="" id="tit4" onmouseover="change_option(8,4)" onmouseout="hiddensub(11,4)"><a
+                    href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/t_list_cpxxsm2.aspx"
+                    target="mainFrame" hidefocus="true">订购产品</a></li>
+            <li class="" id="tit5" onmouseover="change_option(8,5)" onmouseout="hiddensub(11,5)"><a
+                    href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_sctd.aspx"
+                    target="mainFrame" hidefocus="true">管理会员</a></li>
+            <li class="" id="tit6" onmouseover="change_option(8,6)" onmouseout="hiddensub(11,6)"><a
+                    href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_yue.aspx"
+                    target="mainFrame" hidefocus="true">奖金业绩</a></li>
+            <li class="" id="tit7" onmouseover="change_option(8,7)" onmouseout="hiddensub(11,7)"><a
+                    href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_in0asdf23439344f8u88dsf_234suf_87234f_34wf_qdwsfor.aspx"
+                    target="mainFrame" hidefocus="true">个人资料</a></li>
+            <li class="" id="tit8" style="background:none;" onmouseover="change_option(8,8)"
+                onmouseout="hiddensub(11,8)"><a
+                    href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/logout.aspx"
+                    target="mainFrame" hidefocus="true">退出系统</a></li>
+        </ul>
+    </div>
+    <div class="subnav">
+  <span id="sub_0" style="display:block" onmouseover="change_option(8,1)" onmouseout="hiddensub(8,1)">  
+       <iframe src="headgdsm.html" marginwidth="0" marginheight="0" scrolling="No" border="0" width="100%"
+               frameborder="0" height="30">
+       </iframe>
+      </span>
+        <span style="display: block;" id="sub_1"></span>
+	<span style="display: none;" id="sub_2" onmouseover="change_option(8,2)" onmouseout="hiddensub(8,2)">
+    <table class="subnav_tab">
+    </table>
+    </span> 
+	<span style="display: none;" id="sub_3" onmouseover="change_option(8,3)" onmouseout="hiddensub(8,3)">
+    <table class="subnav_tab">
+        <tbody>
+        <tr>
+            <td>
+                <a href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_1xwgg1.aspx"
+                   target="mainFrame">新闻公告</a></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_lygl.aspx"
+                   target="mainFrame">我要留言</a></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_ckly.aspx"
+                   target="mainFrame">查看留言</a></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_gslylist.aspx"
+                   target="mainFrame">收&nbsp;件&nbsp;箱</a></td>
+        </tr>
+        </tbody>
+    </table>
+    </span> 
+	<span style="display: none;" id="sub_4" onmouseover="change_option(8,4)" onmouseout="hiddensub(8,4)">
+    <table class="subnav_tab">
+        <tbody>
+        <tr>
+            <td>
+                <a href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/t_list_cpxxsm2.aspx"
+                   target="mainFrame">购买说明</a></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/t_list_dgcpzh.aspx"
+                   target="mainFrame">订购产品</a></td>
+        </tr>
+        </tbody>
+    </table>
+    </span> 
+	<span style="display: none;" id="sub_5" onmouseover="change_option(8,5)" onmouseout="hiddensub(8,5)">
+    <table class="subnav_tab">
+        <tbody>
+        <tr>
+            <td>
+                <a href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_sctd.aspx"
+                   target="mainFrame">市场团队</a></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_reg.aspx"
+                   target="mainFrame">注册会员</a></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_hy.aspx"
+                   target="mainFrame">未审会员</a></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_hysh.aspx"
+                   target="mainFrame">已审会员</a></td>
+        </tr>
+        </tbody>
+    </table>
+	</span>
+     
+	<span style="display: none;" id="sub_6" onmouseover="change_option(8,6)" onmouseout="hiddensub(8,6)">
+    <table class="subnav_tab">
+        <tbody>
+        <tr>
+            <td>
+                <a href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_yue.aspx"
+                   target="mainFrame">奖金明细</a></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_yueDSB.aspx"
+                   target="mainFrame">电商币明细</a></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_txsq.aspx"
+                   target="mainFrame">申请提现</a></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_zdzhbc.aspx"
+                   target="mainFrame">转报单币</a></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_zdzhbzbbb.aspx"
+                   target="mainFrame">现金币转报单币</a></td>
+        </tr>
+        </tbody>
+    </table>
+    </span>
+	<span style="display: none;" id="sub_7" onmouseover="change_option(8,7)" onmouseout="hiddensub(8,7)">
+    <table class="subnav_tab">
+        <tbody>
+        <tr>
+            <td>
+                <a href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_in0asdf23439344f8u88dsf_234suf_87234f_34wf_qdwsfor.aspx"
+                   target="mainFrame">个人信息</a></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_pwd.aspx"
+                   target="mainFrame">修改密码</a></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_zthy.aspx"
+                   target="mainFrame">销售业绩</a></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_lqlj.aspx"
+                   target="mainFrame">两区业绩</a></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_czjl.aspx"
+                   target="mainFrame">充值记录</a></td>
+        </tr>
+        </tbody>
+    </table>
+    </span>
+		<span style="display: none;" id="sub_8" onmouseover="change_option(8,8)" onmouseout="hiddensub(8,8)">
+    
+    </span>
+    </div>
+    <!--导航栏end-->
+</div>
+
+<!--头包含结束-->
+<table class="table_board2" align="center" border="0" cellpadding="0" cellspacing="0" width="950">
+    <tbody>
+    <tr>
+        <td>
+    <span id="imageId">
+    	<img src="images/vip.jpg" width="183" height="122">
+    </span></td>
+        <td width="22">&nbsp;</td>
+        <td>
+
+            <div style="text-align:right;">
+
+
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="745" height="120">
+                    <tbody>
+                    <tr valign="top">
+                        <td colspan="3">
+                            <img style=""
+                                 src="../images/ad-03.jpg"
+                                             name="slide" border="0" width="745" height="120">
+                        </td>
+                    </tr>
+                    <tr style="display:none">
+                        <td class="white" align="center" bgcolor="#f4f4f4" width="229" height="19">
+                            <div id="textslide">焦点图标题层</div>
+                        </td>
+                        <td bgcolor="#7C7C7C" width="1">
+                            <div style="position:relative">
+                                <div style="position:absolute;top:10px">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="95">
+                                        <tbody>
+                                        <tr align="center" valign="top">
+                                            <td width="19" height="0">
+                                                <div style="position:relative">
+                                                    <div id="xiaotu1" style="position:absolute;top:-19px;left:0px"><img
+                                                            src="images/bian2.gif" id="xiaosan1" border="0"
+                                                        width="10 height=">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td width="19" height="0">
+                                                <div style="position:relative">
+                                                    <div id="xiaotu2" style="position:absolute;top:-19px;left:0px"><img
+                                                            src="images/bian2.gif" id="xiaosan2" width="10"
+                                                            height="3"></div>
+                                                </div>
+                                            </td>
+                                            <td width="19" height="0">
+                                                <div style="position:relative">
+                                                    <div id="xiaotu3" style="position:absolute;top:-19px;left:0px"><img
+                                                            src="images/bian1.gif" id="xiaosan3" width="10"
+                                                            height="3"></div>
+                                                </div>
+                                            </td>
+                                            <td width="19" height="0">
+                                                <div style="position:relative; left: 1px;">
+                                                    <div id="xiaotu5" style="position:absolute;top:-19px;left:0px"><img
+                                                            src="images/bian2.gif" id="xiaosan4" width="10"
+                                                            height="3"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </td>
+                        <td width="95" height="19">
+                            <table border="0" cellpadding="0" cellspacing="0" width="95">
+                                <tbody>
+                                <tr valign="top">
+                                    <td class="homejdboder" width="19" height="19"><a style="cursor:hand"
+                                                                                      onmouseover="ove(0)"
+                                                                                      onmouseout="ou()"><img
+                                            src="images/1.html" border="0" width="19" height="19"></a></td>
+                                    <td class="homejdboder" width="19" height="19"><a style="cursor:hand"
+                                                                                      onmouseover="ove(1)"
+                                                                                      onmouseout="ou()"><img
+                                            src="images/2.html" border="0" width="19" height="19"></a></td>
+                                    <td class="homejdboder" width="19" height="19"><a style="cursor:hand"
+                                                                                      onmouseover="ove(2)"
+                                                                                      onmouseout="ou()"><img
+                                            src="images/3.html" border="0" width="19" height="19"></a></td>
+                                    <td width="19" height="19"><a style="cursor:hand" onmouseover="ove(3)"
+                                                                  onmouseout="ou()"><img src="images/4.html"
+                                                                                         border="0" width="19"
+                                                                                         height="19"></a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <script language="JavaScript" src="js/5adpics2.js"></script>
+            </div>
+
+
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" height="2"></td>
+    </tr>
+    </tbody>
+</table>
+</div>
+</form>
+
+</body>
+</html>

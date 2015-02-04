@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="css/default.css" type="text/css" rel="stylesheet">
+    <link href="css/gdv.css" type="text/css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/newadd.css" rel="stylesheet" type="text/css">
+
+    <link href="css/info.css" type="text/css" rel="stylesheet">
+    <title>信息管理系统-会员登陆</title>
+    <script language="javascript">
+        function Click() {
+            window.event.returnValue = false;
+        }
+        document.oncontextmenu = Click;
+    </script>
+
+    <!--头包含开始-->
+    <script language="JavaScript" type="text/javascript" src="js/Navtag.js"></script>
+    <script type="text/javascript" src="js/stat.js"></script>
+    <script type="text/javascript" language="javascript">
+        function iFrameHeight() {
+            var ifm = document.getElementById("mainFrame");
+            var subWeb = document.frames ? document.frames["mainFrame"].document : ifm.contentDocument;
+            if (ifm != null && subWeb != null) {
+                ifm.height = subWeb.body.scrollHeight;
+            }
+        }
+    </script>
+</head>
+
+
+<body>
+<!-- top start-->
+<div class="top">
+<div class="line"></div>
+    <div id="content-all">
+    <!--top 标题栏-->
+    <div id="heading">
+        <div class="logo"><a href="#"><img src="images/logo.jpg" border="0"></a></div>
+        <div class="moblie_sms">
+            <ul>
+                <li class="moblie_bj"><a href="http://iservice.10010.com/elecService/wap.html" target="_blank">手机营业厅</a>
+                </li>
+                <li class="sms_bj"><a href="http://iservice.10010.com/elecService/message.html"
+                                      target="_blank">短信营业厅</a>
+                </li>
+                <li class="xinlang_wb"><a href="http://iservice.10010.com/elecService/weixin.html"
+                                          target="_blank">微信营业厅</a></li>
+            </ul>
+        </div>
+
+        <div class="logo-r">
+            <div class="short">
+                <a href="http://sc.100103g4gvip.com/" target="_blank"><img src="images/short_7.jpg" border="0"></a>
+                <a href="http://iservice.10010.com/index_.html" target="_blank"><img src="images/short_1.jpg"
+                                                                                     border="0"></a>
+                <a href="http://upay.10010.com/web/Layout/welcome" target="_blank"><img src="images/short_2.jpg"
+                                                                                        border="0"></a>
+                <a href="http://upay.10010.com/web/Buycard/BuycardInit" target="_blank"><img src="images/short_3.jpg"
+                                                                                             border="0"></a>
+                <a href="http://iservice.10010.com/index_.html" target="_blank"><img src="images/short_4.jpg"
+                                                                                     border="0"></a>
+                <a href="http://info.10010.com/database/roaming/roamingfees/queryRoamingFees.do" target="_blank"><img
+                        src="images/short_5.jpg" border="0"></a>
+                <a href="https://uac.10010.com/portal/mallLogin.jsp" target="_blank"><img src="images/short_6.jpg"
+                                                                                          border="0"></a></div>
+        </div>
+    </div>
+
+    <!--导航栏-->
+    <div id="navbar">
+        <ul class="navlist">
+            <li style="width:2px;"><a href="#"></a></li>
+
+            <li><a href="index.html" target="_self">首页</a></li>
+
+            <li>
+                <a href="#">资料信息</a>
+                <ul>
+                    <li><a href="news.html" target="_self">新闻公告</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">会员管理</a>
+                <ul>
+                    <li><a href="userlogin.html" target="_self">市场团队</a></li><!--登陆进去后进入：usermanage.html-->
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">个人资料</a>
+                <ul>
+                    <li><a href="userlogin.html" target="_self">个人信息</a></li> <!--登陆进去后进入：userinfo.html-->
+                    <li><a href="userlogin.html" target="_self">修改密码</a></li>  <!--登陆进去后进入：updatePass.html-->
+                </ul>
+            </li>
+
+            <li><a href="#">退出系统</a></li>
+        </ul>
+    </div>
+    <div class="subnav">
+      <span id="sub_0" style="display:block" onmouseover="change_option(8,1)" onmouseout="hiddensub(8,1)">
+           <iframe src="include/headgdsm.html" marginwidth="0" marginheight="0" scrolling="No" border="0" width="100%"
+                   frameborder="0" height="30">
+           </iframe>
+          </span>
+    </div>
+    <!--导航栏end-->
+    </div>
+<!--头包含结束-->
+    <table class="table_board2" align="center" border="0" cellpadding="0" cellspacing="0" width="950">
+        <tbody>
+        <tr>
+            <td><span id="imageId"><img src="images/vip.jpg" width="183" height="122"></span></td>
+            <td width="22">&nbsp;</td>
+            <td>
+                <table align="right" border="0" cellpadding="0" cellspacing="0" width="745" height="120">
+                   <tbody>
+                    <tr valign="top">
+                        <td colspan="3"><img style="" src="images/ad-03.jpg" name="slide" border="0" width="745" height="120"></td>
+                    </tr>
+                    <tr style="display:none">
+                        <td class="white" align="center" bgcolor="#f4f4f4" width="229" height="19">
+                            <div id="textslide">焦点图标题层</div>
+                        </td>
+                        <td bgcolor="#7C7C7C" width="1">
+                            <div style="position:relative">
+                                <div style="position:absolute;top:10px">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="95">
+                                        <tbody>
+                                        <tr align="center" valign="top">
+                                            <td width="19" height="0">
+                                                <div style="position:relative">
+                                                    <div id="xiaotu1" style="position:absolute;top:-19px;left:0px"><img
+                                                            src="images/bian2.gif" id="xiaosan1" border="0"
+                                                            width="10 height=">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td width="19" height="0">
+                                                <div style="position:relative">
+                                                    <div id="xiaotu2" style="position:absolute;top:-19px;left:0px"><img
+                                                            src="images/bian2.gif" id="xiaosan2" width="10"
+                                                            height="3"></div>
+                                                </div>
+                                            </td>
+                                            <td width="19" height="0">
+                                                <div style="position:relative">
+                                                    <div id="xiaotu3" style="position:absolute;top:-19px;left:0px"><img
+                                                            src="images/bian1.gif" id="xiaosan3" width="10"
+                                                            height="3"></div>
+                                                </div>
+                                            </td>
+                                            <td width="19" height="0">
+                                                <div style="position:relative; left: 1px;">
+                                                    <div id="xiaotu5" style="position:absolute;top:-19px;left:0px"><img
+                                                            src="images/bian2.gif" id="xiaosan4" width="10"
+                                                            height="3"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </td>
+                        <td width="95" height="19">
+                            <table border="0" cellpadding="0" cellspacing="0" width="95">
+                                <tbody>
+                                    <tr valign="top">
+                                        <td class="homejdboder" width="19" height="19"><a style="cursor:hand" onmouseover="ove(0)" onmouseout="ou()"><img src="images/1.html" border="0" width="19" height="19"></a></td>
+                                        <td class="homejdboder" width="19" height="19"><a style="cursor:hand" onmouseover="ove(1)" onmouseout="ou()"><img src="images/2.html" border="0" width="19" height="19"></a></td>
+                                        <td class="homejdboder" width="19" height="19"><a style="cursor:hand" onmouseover="ove(2)" onmouseout="ou()"><img src="images/3.html" border="0" width="19" height="19"></a></td>
+                                        <td width="19" height="19"><a style="cursor:hand" onmouseover="ove(3)" onmouseout="ou()"><img src="images/4.html" border="0" width="19" height="19"></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" height="2"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!-- top end-->
+
+
+<!--main start-->
+<div class="main">
+    <div class="left">
+        <iframe scrolling="no" src="include/left.html" width="181px" frameborder="0" height="630px;"></iframe>
+    </div>
+    <div class="right">
+        <table border="0" cellpadding="0" cellspacing="0" width="745">
+            <tbody>
+            <tr>
+                <td class="newdqwz">
+                    <span class="font_navigate">您所在的位置：</span>
+                    <span class="font_navigate">&gt;</span>
+                    <span class="font_navigate">输入二级密码</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table style="margin-right:4px;" border="0" cellpadding="0" cellspacing="0" width="745">
+            <tbody>
+            <tr>
+                <td colspan="2" height="7"></td>
+            </tr>
+            <tr>
+                <td class="newZwTitle">
+                    输入二级密码
+                </td>
+                <td class="newMoreBg">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" height="8"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="newGjmyGyUll" align="center" valign="top">
+                    <div style="border-right: CCCCCC 1px solid; border-top: CCCCCC 1px solid; margin: 0px auto auto;
+                                    border-left: CCCCCC 1px solid; border-bottom: CCCCCC 1px solid; text-align: center">
+                        <br>
+                        <br>
+
+                        <h3>
+                            请输入二级密码</h3>
+                        <input name="t1" id="t1" type="password">
+                        <br>
+
+                        <br>
+                        <br>
+                        <input name="Button1" value="提交" id="Button1" class="tijiaobtn2" type="submit"><br>
+                        <br><br><br>
+                    </div>
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="clear"></div>
+<br><br>
+<!--main end-->
+
+
+<!--footer start-->
+<div class="footer">
+    <iframe scrolling="no" src="include/foot.html" width="100%" frameborder="0" height="81px"></iframe>
+</div>
+<!--footer end-->
+
+
+
+<noframes>
+<!--
+    <body style="position:relative;" onmouseover="self.status='欢迎光临会员信息管理系统！请您多多支持，多提意见！有您的支持我们会更加进步，有您的意见我们会更加完善！！！';return true">
+-->
+    <script language="JavaScript" type="text/javascript">
+        <!--
+        function statusMessageObject(p, d) {
+            this.msg = MESSAGE
+            this.out = " "
+            this.pos = POSITION
+            this.delay = DELAY
+            this.i = 0
+            this.reset = clearMessage
+        }
+        function clearMessage() {
+            this.pos = POSITION
+        }
+        var POSITION = 1
+        var DELAY = 5
+        var MESSAGE = "                                                                                                                                   "
+        var scroll = new statusMessageObject()
+        function scroller() {
+            for (scroll.i = 0; scroll.i < scroll.pos; scroll.i++) {
+                scroll.out += " "
+            }
+            if (scroll.pos >= 0)
+                scroll.out += scroll.msg
+            else scroll.out = scroll.msg.substring(-scroll.pos, scroll.msg.length)
+            window.status = scroll.out
+            scroll.out = " "
+            scroll.pos--
+            if (scroll.pos < -(scroll.msg.length)) {
+                scroll.reset()
+            }
+            setTimeout('scroller()', scroll.delay)
+        }
+        function snapIn(jumpSpaces, position) {
+            var msg = scroll.msg
+            var out = ""
+            for (var i = 0; i < position; i++) {
+                out += msg.charAt(i)
+            }
+            for (i = 1; i < jumpSpaces; i++) {
+                out += " "
+            }
+            out += msg.charAt(position)
+            window.status = out
+            if (jumpSpaces <= 1) {
+                position++
+                if (msg.charAt(position) == ' ') {
+                    position++
+                }
+                jumpSpaces = 1 - position
+            } else if (jumpSpaces > 3) {
+                jumpSpaces *= .75
+            }
+            else {
+                jumpSpaces--
+            }
+            if (position != msg.length) {
+                var cmd = "snapIn(" + jumpSpaces + "," + position + ")";
+                scrollID = window.setTimeout(cmd, scroll.delay);
+            } else {
+                window.status = ""
+                jumpSpaces = 0
+                position = 0
+                cmd = "snapIn(" + jumpSpaces + "," + position + ")";
+                scrollID = window.setTimeout(cmd, scroll.delay);
+                return false
+            }
+            return true
+        }
+        snapIn(1, 0);
+        -->
+    </script>
+
+
+    <form name="form1" method="post" action="mainmn.aspx" id="form1">
+        <div>
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
+                   value="/wEPDwUKMTc2MTg4NDc4NmRkHHlKDBYTsI6lLUohb1+ESgD95ro="/>
+        </div>
+
+        <div>
+
+
+        </div>
+    </form>
+   <!-- </body>-->
+
+</noframes>
+
+<!--img focus of js start-->
+<script language="JavaScript" src="js/5adpics2.js"></script>
+</body>
+</html>

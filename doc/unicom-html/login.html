@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link href="css/default.css" type="text/css" rel="stylesheet">
+    <link href="css/gdv.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <title>信息管理系统-统一登陆入口</title>
+    <script language="javascript">
+        //<![CDATA[
+        var theForm = document.forms['form1'];
+        if (!theForm) {
+            theForm = document.form1;
+        }
+        function __doPostBack(eventTarget, eventArgument) {
+            if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                theForm.__EVENTTARGET.value = eventTarget;
+                theForm.__EVENTARGUMENT.value = eventArgument;
+                theForm.submit();
+            }
+        }
+        //]]>
+    </script>
+
+
+    <script src="js/WebResource.axd?d=Cr6NY1haBII3CUWgTf-vRxkAVYzK1FJ6XORbJp5zHXYb1faJ2WnIXBUQYE-i4nGMszzp_Bd8NNpxf0uVdI32lDKWS0A1&amp;t=635555715256875000"
+            type="text/javascript"></script>
+
+
+    <script src="js/ScriptResource.axd?d=-GWQerARjCJNLO-D1Qo1L3_ZiXaBIEgs3Ysb00Uc9PFGYx-pJ6FSoIE732WOwgCOp4yTr9ex_e_NKM_bIM3I6lYsNiBzr2QzJ6a-Y9u-EB73wTcxTbjBNba_DSfoo7PugG8pcQ2&amp;t=633049125920000000"
+            type="text/javascript"></script>
+
+    <script src="js/ScriptResource.axd?d=nBtHB1VK7NqdIa6Pmlc1K0qVRIEzw9V8WyzyIl1GbweBmcuJwWONK2YSJGCQjW8bZC6Y-Ytq0OKRRzyl1ulYimy5rrRbzU17CyUQInUu0tz2TEzIosKjvwGv1ca-9J-EtbJhZQ2&amp;t=633049125920000000"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        Sys.WebForms.PageRequestManager._initialize('ScriptManager1', document.getElementById('form1'));
+        Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tUpdatePanel1'], [], [], 90);
+        //]]>
+    </script>
+</head>
+
+
+<body style="OVERFLOW-X: hidden; OVERFLOW-Y: hidden">
+<form name="form1" method="post" action="index.aspx" id="form1">
+    <div>
+        <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+        <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+        <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
+               value="/wEPDwULLTIwNDA4NDE2OTdkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYBBQxJbWFnZUJ1dHRvbjE2LJwPnkvc/+eh+DPQHKTH+kZEyA==">
+    </div>
+
+
+    <div>
+        <div id="UpdatePanel1">
+            <div class="youzhong">.</div>
+            <div style="TEXT-ALIGN: center; MARGIN: auto; WIDTH: 100%; HEIGHT: auto">
+                <div style="TEXT-ALIGN: left; WIDTH: 880px; VERTICAL-ALIGN: top"></div>
+                <br><br><br><br><br>
+                <table border="0" cellspacing="0" cellpadding="0" width="112%" style="position:relative">
+                    <tbody>
+                    <tr>
+                        <td width="53%" align="middle">.</td>
+                        <td align="middle">
+                            <table border="0" cellspacing="0" cellpadding="0" width="27%" align="left">
+                                <tbody>
+                                <tr>
+                                    <td height="136" valign="center" align="middle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+                                            hspace="22" src="images/logoo.gif" width="286" height="90"></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table style="FONT-SIZE: 13px" border="0" cellspacing="0" cellpadding="0"
+                                               width="90%" align="center">
+                                            <tbody>
+                                            <tr>
+                                                <td height="33" width="26%" align="middle"><strong><font class="f11"
+                                                                                                         color="#336699">用户名</font></strong>
+                                                </td>
+                                                <td height="33" width="74%" align="left" valign="middle"><font
+                                                        color="#ffffff">
+                                                    <input name="name" type="text" id="name"
+                                                           style="color:#81B432;border-color:#82C4DE;border-width:2px;border-style:Solid;font-size:10pt;height:18px;width:150px;">
+                                                </font></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="33" align="middle"><strong><font class="f11"
+                                                                                             color="#336699">密&nbsp;&nbsp;码</font></strong>
+                                                </td>
+                                                <td height="33" align="left" valign="middle"><font color="#ffffff">
+                                                    <input name="pass" type="password" id="pass"
+                                                           style="color:#81B432;border-color:#82C4DE;border-width:2px;border-style:Solid;font-size:10pt;height:18px;width:150px;">
+                                                </font></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="33" align="middle"><strong><font class="f11" color="#336699">验证码</font></strong>
+                                                </td>
+                                                <td height="33" align="left" valign="middle">
+                                                    <input name="t" type="text" id="t" style="color:#81B432;border-color:#82C4DE;border-width:2px;border-style:Solid;font-size:10pt;height:18px;width:75px;">&nbsp;
+                                                    <img alt="看不清？点击更换" onclick="this.src=this.src + '?'" style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; height:23px; width: 65px;"
+                                                        id="Image2" src="yanzheng.aspx">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="33" align="center" colspan="2">&nbsp;
+                                                    <input type="image" name="ImageButton1" id="ImageButton1" src="images/anniu.jpg" style="border-width:0px;">
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <script type="text/javascript">
+            //<![CDATA[
+            Sys.Application.initialize();
+            //]]>
+        </script>
+
+
+    </div>
+</form>
+</body>
+</html>
