@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 公用的Action Begin -->
+	<package name="struts-public-common" namespace=""
+		extends="struts-interceptor">
+		<!-- 登录登出的Action -->
+		<action name="login" class="login">
+		    <result name="success" type="redirect">/jsp/main.jsp</result>
+			<result name="login" type="dispatcher">/index.jsp</result>
+			<result name="logOff" type="redirect">/index.jsp</result>
+			<interceptor-ref name="common-params" />
+		</action>
+	</package>
+	<!-- 公用的Action End -->
+
+	<!-- 会员Action Begin -->
+    <package name="struts-admin-member" namespace="/admin/member" extends="struts-interceptor">
+		<action name="memberAction" class="memberAction">
+			<result name="success" type="dispatcher">/jsp/admin/member/memberList.jsp</result>
+			<result name="add" type="dispatcher">/jsp/admin/member/memberAdd.jsp</result>
+			<result name="addSave" type="redirectAction">
+				<param name="actionName">memberAction</param>
+				<param name="namespace">/admin/member</param>
+			</result>
+
+			<result name="edit" type="dispatcher">/jsp/admin/member/memberEdit.jsp</result>
+			<result name="editSave" type="redirectAction">
+				<param name="actionName">memberAction</param>
+				<param name="namespace">/admin/member</param>
+			</result>
+			
+			<result name="deleteSuccess" type="redirectAction">
+				<param name="actionName">memberAction</param>
+				<param name="namespace">/admin/member</param>
+			</result>
+			
+			<interceptor-ref name="common-params"/>
+        </action>
+    </package> 
+    <!-- 会员Action End -->
+    
+</struts>

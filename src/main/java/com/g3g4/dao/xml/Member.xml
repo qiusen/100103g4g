@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.g3g4.dao.IMemberDAO">
+	
+	<cache flushInterval="600000" eviction="LRU" type="org.mybatis.caches.oscache.OSCache"/>
+	
+	<sql id="memberLikeWhere">
+		<where>
+            <if test ="id != null and id > -1">
+				and `ID` = #{id}
+			</if>
+	        <if test ="code != null and code != ''">
+			    and `CODE` like '%${code}%'
+		    </if>
+	        <if test ="name != null and name != ''">
+			    and `NAME` like '%${name}%'
+		    </if>
+	        <if test ="mobile != null and mobile != ''">
+			    and `MOBILE` like '%${mobile}%'
+		    </if>
+	        <if test ="servCode != null and servCode != ''">
+			    and `SERV_CODE` like '%${servCode}%'
+		    </if>
+	        <if test ="recoCode != null and recoCode != ''">
+			    and `RECO_CODE` like '%${recoCode}%'
+		    </if>
+	        <if test ="managerCode != null and managerCode != ''">
+			    and `MANAGER_CODE` like '%${managerCode}%'
+		    </if>
+	        <if test ="area != null and area != ''">
+			    and `AREA` like '%${area}%'
+		    </if>
+	        <if test ="inden != null and inden != ''">
+			    and `INDEN` like '%${inden}%'
+		    </if>
+            <if test ="bank != null and bank > -1">
+				and `BANK` = #{bank}
+			</if>
+            <if test ="passwd1 != null and passwd1 > -1">
+				and `PASSWD1` = #{passwd1}
+			</if>
+            <if test ="passwd2 != null and passwd2 > -1">
+				and `PASSWD2` = #{passwd2}
+			</if>
+            <if test ="passwd3 != null and passwd3 > -1">
+				and `PASSWD3` = #{passwd3}
+			</if>
+	        <if test ="mobile2 != null and mobile2 != ''">
+			    and `MOBILE2` like '%${mobile2}%'
+		    </if>
+	        <if test ="qq != null and qq != ''">
+			    and `QQ` like '%${qq}%'
+		    </if>
+	        <if test ="postCode != null and postCode != ''">
+			    and `POST_CODE` like '%${postCode}%'
+		    </if>
+	        <if test ="addr != null and addr != ''">
+			    and `ADDR` like '%${addr}%'
+		    </if>
+	        <if test ="remark != null and remark != ''">
+			    and `REMARK` like '%${remark}%'
+		    </if>
+            <if test ="taxCoin != null and taxCoin > -1">
+				and `TAX_COIN` = #{taxCoin}
+			</if>
+            <if test ="cashCoin != null and cashCoin > -1">
+				and `CASH_COIN` = #{cashCoin}
+			</if>
+            <if test ="shopCoin != null and shopCoin > -1">
+				and `SHOP_COIN` = #{shopCoin}
+			</if>
+            <if test ="level != null and level > -1">
+				and `LEVEL` = #{level}
+			</if>
+            <if test ="status != null and status > -1">
+				and `STATUS` = #{status}
+			</if>
+	        <if test ="creator != null and creator != ''">
+			    and `CREATOR` like '%${creator}%'
+		    </if>
+	        <if test ="updator != null and updator != ''">
+			    and `UPDATOR` like '%${updator}%'
+		    </if>
+	        <if test ="exator != null and exator != ''">
+			    and `EXATOR` like '%${exator}%'
+		    </if>
+		</where>
+	</sql>
+	
+	<sql id="memberPage">
+		<if test="null != start">
+		  limit #{start},#{pageSize}
+		</if>
+	</sql>
+	
+	<sql id="memberField">
+		`ID`, `CODE`, `NAME`, `MOBILE`, `SERV_CODE`, `RECO_CODE`, `MANAGER_CODE`, `AREA`, `INDEN`, `BANK`, `PASSWD1`, `PASSWD2`, `PASSWD3`, `MOBILE2`, `QQ`, `POST_CODE`, `ADDR`, `REMARK`, `TAX_COIN`, `CASH_COIN`, `SHOP_COIN`, `LEVEL`, `STATUS`, `CREATOR`, `CREATETIME`, `UPDATOR`, `UPDATETIME`, `EXATOR`, `EXATETIME`
+	</sql>
+	
+	<resultMap id="memberMap" type="member">
+	    	<result property="id" column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="code" column="CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="name" column="NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="mobile" column="MOBILE" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="servCode" column="SERV_CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="recoCode" column="RECO_CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="managerCode" column="MANAGER_CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="area" column="AREA" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="inden" column="INDEN" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="bank" column="BANK" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="passwd1" column="PASSWD1" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="passwd2" column="PASSWD2" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="passwd3" column="PASSWD3" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="mobile2" column="MOBILE2" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="qq" column="QQ" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="postCode" column="POST_CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="addr" column="ADDR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="remark" column="REMARK" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="taxCoin" column="TAX_COIN" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="cashCoin" column="CASH_COIN" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="shopCoin" column="SHOP_COIN" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="level" column="LEVEL" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="status" column="STATUS" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="creator" column="CREATOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="createtime" column="CREATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	    	<result property="updator" column="UPDATOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="updatetime" column="UPDATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	    	<result property="exator" column="EXATOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="exatetime" column="EXATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+	<insert id="addSaveMember" parameterType="member">
+		insert into `member` (
+           `CODE`, 
+           `NAME`, 
+           `MOBILE`, 
+           `SERV_CODE`, 
+           `RECO_CODE`, 
+           `MANAGER_CODE`, 
+           `AREA`, 
+           `INDEN`, 
+           `BANK`, 
+           `PASSWD1`, 
+           `PASSWD2`, 
+           `PASSWD3`, 
+           `MOBILE2`, 
+           `QQ`, 
+           `POST_CODE`, 
+           `ADDR`, 
+           `REMARK`, 
+           `TAX_COIN`, 
+           `CASH_COIN`, 
+           `SHOP_COIN`, 
+           `LEVEL`, 
+           `STATUS`, 
+           `CREATOR`, 
+           `CREATETIME`, 
+           `UPDATOR`, 
+           `UPDATETIME`, 
+           `EXATOR`, 
+           `EXATETIME`
+		) values 
+		(
+            #{code}, 
+            #{name}, 
+            #{mobile}, 
+            #{servCode}, 
+            #{recoCode}, 
+            #{managerCode}, 
+            #{area}, 
+            #{inden}, 
+            #{bank}, 
+            #{passwd1}, 
+            #{passwd2}, 
+            #{passwd3}, 
+            #{mobile2}, 
+            #{qq}, 
+            #{postCode}, 
+            #{addr}, 
+            #{remark}, 
+            #{taxCoin}, 
+            #{cashCoin}, 
+            #{shopCoin}, 
+            #{level}, 
+            #{status}, 
+            #{creator}, 
+            #{createtime}, 
+            #{updator}, 
+            #{updatetime}, 
+            #{exator}, 
+            #{exatetime}
+		)
+		<selectKey keyProperty="id"  resultType="java.lang.Integer">
+			select last_insert_id() as id from `member` limit 1
+		</selectKey>
+	</insert>
+	
+	<delete id="deleteByIds" parameterType="String">
+		delete from `member` ${_parameter}
+	</delete>
+	
+	<update id="editSaveMember" parameterType="member">
+		update `member` set 
+              `CODE` = #{code}, 
+              `NAME` = #{name}, 
+              `MOBILE` = #{mobile}, 
+              `SERV_CODE` = #{servCode}, 
+              `RECO_CODE` = #{recoCode}, 
+              `MANAGER_CODE` = #{managerCode}, 
+              `AREA` = #{area}, 
+              `INDEN` = #{inden}, 
+              `BANK` = #{bank}, 
+              `PASSWD1` = #{passwd1}, 
+              `PASSWD2` = #{passwd2}, 
+              `PASSWD3` = #{passwd3}, 
+              `MOBILE2` = #{mobile2}, 
+              `QQ` = #{qq}, 
+              `POST_CODE` = #{postCode}, 
+              `ADDR` = #{addr}, 
+              `REMARK` = #{remark}, 
+              `TAX_COIN` = #{taxCoin}, 
+              `CASH_COIN` = #{cashCoin}, 
+              `SHOP_COIN` = #{shopCoin}, 
+              `LEVEL` = #{level}, 
+              `STATUS` = #{status}, 
+              `CREATOR` = #{creator}, 
+              `CREATETIME` = #{createtime}, 
+              `UPDATOR` = #{updator}, 
+              `UPDATETIME` = #{updatetime}, 
+              `EXATOR` = #{exator}, 
+              `EXATETIME` = #{exatetime}
+        	where ID = #{id}
+	</update>
+	
+	<select id="selectMemberById" parameterType="member" resultMap="memberMap"  >
+		SELECT * FROM `member` where ID = #{id}
+	</select>
+	
+	<select id="getMemberCount" parameterType="member" resultType="Long" >
+		select count(*) from `member`
+		<include refid="memberLikeWhere" />
+	</select>
+	
+	<select id="selectAll" parameterType="member" resultMap="memberMap" >
+		select * from `member`
+	</select>
+	
+	<select id="selectMemberLike" parameterType="member" resultMap="memberMap" >
+		SELECT <include refid="memberField" /> FROM `member`
+	        <include refid="memberLikeWhere" />
+			order by ID desc
+	        <include refid="memberPage" /> 
+	</select>
+</mapper>

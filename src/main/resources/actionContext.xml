@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-autowire="byName">
+
+	<!-- 登录登出的Action -->
+	<bean id="login" class="com.dihaitech.managercenter.controller.action.common.LoginAction"
+		scope="prototype">
+	</bean>
+	
+	<!-- 会员 action -->
+	  <bean id="memberAction" class="com.g3g4.controller.action.member.MemberAction" scope="prototype">
+			<property name="memberService">
+				<ref bean="memberService" />
+			</property>
+	  </bean>
+	  
+</beans>
