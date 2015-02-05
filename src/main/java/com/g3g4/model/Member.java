@@ -60,17 +60,17 @@ public class Member extends BaseModel{
 	/**
 	 * 一级密码
 	 */
-	private Integer passwd1;
+	private String passwd1;
 	
 	/**
 	 * 二级密码
 	 */
-	private Integer passwd2;
+	private String passwd2;
 	
 	/**
 	 * 三级密码
 	 */
-	private Integer passwd3;
+	private String passwd3;
 	
 	/**
 	 * 第二联系方式
@@ -100,17 +100,17 @@ public class Member extends BaseModel{
 	/**
 	 * 报单币
 	 */
-	private Integer taxCoin;
+	private Double taxCoin;
 	
 	/**
 	 * 现金币
 	 */
-	private Integer cashCoin;
+	private Double cashCoin;
 	
 	/**
 	 * 电商币
 	 */
-	private Integer shopCoin;
+	private Double shopCoin;
 	
 	/**
 	 * 级别
@@ -205,22 +205,23 @@ public class Member extends BaseModel{
 	public void setBank(Integer bank) {
 		this.bank = bank;
 	}
-	public Integer getPasswd1() {
+	
+	public String getPasswd1() {
 		return passwd1;
 	}
-	public void setPasswd1(Integer passwd1) {
+	public void setPasswd1(String passwd1) {
 		this.passwd1 = passwd1;
 	}
-	public Integer getPasswd2() {
+	public String getPasswd2() {
 		return passwd2;
 	}
-	public void setPasswd2(Integer passwd2) {
+	public void setPasswd2(String passwd2) {
 		this.passwd2 = passwd2;
 	}
-	public Integer getPasswd3() {
+	public String getPasswd3() {
 		return passwd3;
 	}
-	public void setPasswd3(Integer passwd3) {
+	public void setPasswd3(String passwd3) {
 		this.passwd3 = passwd3;
 	}
 	public String getMobile2() {
@@ -253,22 +254,23 @@ public class Member extends BaseModel{
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	public Integer getTaxCoin() {
+	
+	public Double getTaxCoin() {
 		return taxCoin;
 	}
-	public void setTaxCoin(Integer taxCoin) {
+	public void setTaxCoin(Double taxCoin) {
 		this.taxCoin = taxCoin;
 	}
-	public Integer getCashCoin() {
+	public Double getCashCoin() {
 		return cashCoin;
 	}
-	public void setCashCoin(Integer cashCoin) {
+	public void setCashCoin(Double cashCoin) {
 		this.cashCoin = cashCoin;
 	}
-	public Integer getShopCoin() {
+	public Double getShopCoin() {
 		return shopCoin;
 	}
-	public void setShopCoin(Integer shopCoin) {
+	public void setShopCoin(Double shopCoin) {
 		this.shopCoin = shopCoin;
 	}
 	public Integer getLevel() {

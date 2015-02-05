@@ -1,6 +1,34 @@
+<%@ page contentType="text/html;charset=UTF-8" %><%@ include file="/jsp/common/taglibs.jsp"%><div id="navbar">
+		<ul class="navlist">
+			<li style="width: 2px;"><a href="#"></a></li>
 
+			<li><a href="index.html">首页</a></li>
 
-<style type="text/css">
+			<li><a href="#">资料信息</a>
+				<ul>
+					<li><a href="#" target="_self">新闻公告</a></li>
+				</ul></li>
+
+			<li><a href="#">会员管理</a>
+				<ul>
+					<li><a href="userlogin.html" target="_self">市场团队</a></li>
+					<!--登陆进去后进入：usermanage.html-->
+				</ul></li>
+
+			<li><a href="#">个人资料</a>
+				<ul>
+					<li><a href="userlogin.html" target="_self">个人信息</a></li>
+					<!--登陆进去后进入：userinfo.html-->
+					<li><a href="userlogin.html" target="_self">修改密码</a></li>
+					<!--登陆进去后进入：updatePass.html-->
+				</ul></li>
+
+			<li><a href="${base }/login!logOff.${actionExt}">退出系统</a></li>
+		</ul>
+	</div>
+	<div class="subnav">
+		<span id="sub_0" style="display: block">
+		<style type="text/css">
 
 BODY {
 	TEXT-ALIGN: center; WIDTH: 100%; HEIGHT: 100%; COLOR: #333; FONT-SIZE: 12px
@@ -22,18 +50,7 @@ BODY {
 	TEXT-ALIGN: left; LINE-HEIGHT: 30px; WIDTH: 100%; BACKGROUND: url(http://image.10010.com/images/navsub_bg.jpg) repeat-x left top; HEIGHT: 30px; OVERFLOW: hidden
 }
 </style>
-
-
-
-
-
-
-<!--<form name="form1" method="post" action="headgdsm.aspx" id="form1">
-<div>
-<input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMTUzMjQ3MjIzD2QWAgIDD2QWAgIBDw8WAh4EVGV4dAX+AeS4gOOAgeWNs+aXpei1t+mZhue7reWPkeaUvjE05bm0MTHmnIgxMeaXpeW8gOWni+azqOWGjOeahOS8muWRmOeahOaJi+acuuWSjOWNoeWTge+8jOivt+WQhOWboumYn+aKk+e0p+aXtumXtOWwhui6q+S7veivgei1hOaWmee7n+iuoeiHs+WuouacjeWkhOOAguS6jOOAgTRHMzk25aWX6aSQ5piv57O757uf5YGa5aW955qE5LyY5oOg44CC5q+P5pyI5YyF5ZCrMjAwMOWIhumSn+mAmuivneWSjDZH5rWB6YeP77yM5Lik5bm05LiN55So5Lqk6LS544CCZGRkkjKxiFwjeTNeDdeJ22Z0Iz0FEP4=" type="hidden">
-</div>-->
-
-<div class="ttt">
+				<div class="ttt">
 <font color="#333333">
 <script>
 today=new Date();
@@ -74,9 +91,9 @@ document.write(day);
 <marquee onmouseout="start()" onmouseover="stop()" scrollamount="3" width="100%"><font color="red"><span id="Label2" style="font-weight:bold;">一、即日起陆续发放14年11月11日开始注册的会员的手机和卡品，请各团队抓紧时间将身份证资料统计至客服处。二、4G396套餐是系统做好的优惠。每月包含2000分钟通话和6G流量，两年不用交费。</span></font></marquee>
 -->
 
-<marquee scrollamount="3" width="100%"><font color="red"><span id="Label2" style="font-weight:bold;">一、即日起陆续发放14年11月11日开始注册的会员的手机和卡品，请各团队抓紧时间将身份证资料统计至客服处。二、4G396套餐是系统做好的优惠。每月包含2000分钟通话和6G流量，两年不用交费。</span></font></marquee>
+xxxxxxxxxxxxxxxxx<marquee scrollamount="3" width="100%"><font color="red"><span id="Label2" style="font-weight:bold;">一、即日起陆续发放14年11月11日开始。</span></font></marquee>GGGGGGGG
 
  </div>
 </div>
-
-
+				</span>
+			</div>

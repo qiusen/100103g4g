@@ -70,4 +70,14 @@ public class MemberServiceImpl implements IMemberService {
 	public Member selectMemberById(Member member) {
 		return memberDAO.selectMemberById(member);
 	}
+
+
+	/* (non-Javadoc)
+	 * @see com.g3g4.service.IMemberService#login(com.g3g4.model.Member)
+	 */
+	@Override
+	public Member login(Member member) {
+		// TODO Auto-generated method stub
+		return memberDAO.login(member);
+	}
 }

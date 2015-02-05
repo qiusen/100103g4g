@@ -63,4 +63,11 @@ public interface IMemberService {
 	 * @return
 	 */
 	public int deleteByIds(String str);
+
+	/**
+	 * 登录使用
+	 * @param member
+	 * @return
+	 */
+	public Member login(Member member);
 }

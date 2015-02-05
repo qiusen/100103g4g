@@ -69,4 +69,11 @@ public interface IMemberDAO {
 	 * @return
 	 */
 	public List<Member> selectAll();
+
+	/**
+	 * 登录使用
+	 * @param member
+	 * @return
+	 */
+	public Member login(Member member);
 }

@@ -36,15 +36,6 @@
             <if test ="bank != null and bank > -1">
 				and `BANK` = #{bank}
 			</if>
-            <if test ="passwd1 != null and passwd1 > -1">
-				and `PASSWD1` = #{passwd1}
-			</if>
-            <if test ="passwd2 != null and passwd2 > -1">
-				and `PASSWD2` = #{passwd2}
-			</if>
-            <if test ="passwd3 != null and passwd3 > -1">
-				and `PASSWD3` = #{passwd3}
-			</if>
 	        <if test ="mobile2 != null and mobile2 != ''">
 			    and `MOBILE2` like '%${mobile2}%'
 		    </if>
@@ -108,17 +99,17 @@
 	    	<result property="area" column="AREA" javaType="java.lang.String" jdbcType="VARCHAR" />
 	    	<result property="inden" column="INDEN" javaType="java.lang.String" jdbcType="VARCHAR" />
 	    	<result property="bank" column="BANK" javaType="java.lang.Integer" jdbcType="INTEGER" />
-	    	<result property="passwd1" column="PASSWD1" javaType="java.lang.Integer" jdbcType="INTEGER" />
-	    	<result property="passwd2" column="PASSWD2" javaType="java.lang.Integer" jdbcType="INTEGER" />
-	    	<result property="passwd3" column="PASSWD3" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="passwd1" column="PASSWD1" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="passwd2" column="PASSWD2" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="passwd3" column="PASSWD3" javaType="java.lang.String" jdbcType="VARCHAR" />
 	    	<result property="mobile2" column="MOBILE2" javaType="java.lang.String" jdbcType="VARCHAR" />
 	    	<result property="qq" column="QQ" javaType="java.lang.String" jdbcType="VARCHAR" />
 	    	<result property="postCode" column="POST_CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
 	    	<result property="addr" column="ADDR" javaType="java.lang.String" jdbcType="VARCHAR" />
 	    	<result property="remark" column="REMARK" javaType="java.lang.String" jdbcType="VARCHAR" />
-	    	<result property="taxCoin" column="TAX_COIN" javaType="java.lang.Integer" jdbcType="INTEGER" />
-	    	<result property="cashCoin" column="CASH_COIN" javaType="java.lang.Integer" jdbcType="INTEGER" />
-	    	<result property="shopCoin" column="SHOP_COIN" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="taxCoin" column="TAX_COIN" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="cashCoin" column="CASH_COIN" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="shopCoin" column="SHOP_COIN" javaType="java.lang.Double" jdbcType="DOUBLE" />
 	    	<result property="level" column="LEVEL" javaType="java.lang.Integer" jdbcType="INTEGER" />
 	    	<result property="status" column="STATUS" javaType="java.lang.Integer" jdbcType="INTEGER" />
 	    	<result property="creator" column="CREATOR" javaType="java.lang.String" jdbcType="VARCHAR" />
@@ -250,5 +241,10 @@
 	        <include refid="memberLikeWhere" />
 			order by ID desc
 	        <include refid="memberPage" /> 
+	</select>
+	
+	<select id="login" parameterType="member" resultMap="memberMap" >
+		SELECT <include refid="memberField" /> FROM `member`
+	        where `CODE` = #{code} and `PASSWD1` = #{passwd1}
 	</select>
 </mapper>

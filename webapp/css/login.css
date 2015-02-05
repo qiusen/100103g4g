@@ -1,0 +1,65 @@
+body {
+    margin:0px;
+    font-size:12px;
+    background-color: #CCDAF7;
+    background-image: url(http://localhost:8080/100103g4g/images/d.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+
+    -moz-background-size: 100% 100%; /*  Firefox 3.6 */
+    -o-background-size: 100% 100%; /* Opera 9.5 */
+    -webkit-background-size: 100% 100%; /* Safari 3.0 */
+    background-size: 100% 100%; /*  Firefox 4.0 and other CSS3-compliant browsers */
+    -moz-border-image: url(http://localhost:8080/100103g4g/images/d.jpg) 0; /* Firefox 3.5 */
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://localhost:8080/100103g4g/images/d.jpg', sizingMethod='scale');
+    position: relative;
+    line-height: 2;
+    height: 100%;
+    overflow: hidden
+}
+
+* {
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+    PADDING-TOP: 0px
+}
+
+BODY {
+    POSITION: relative;
+    LINE-HEIGHT: 2;
+    HEIGHT: 100%;
+    OVERFLOW: hidden
+}
+
+HTML {
+    HEIGHT: 100%;
+    OVERFLOW: hidden
+}
+
+.showRightOverFlow {
+    Z-INDEX: 99999;
+    POSITION: absolute;
+    WIDTH: 200px;
+    BOTTOM: 0px;
+    HEIGHT: 165px;
+    LEFT: 0px
+}
+
+.youshang {
+    Z-INDEX: 99999;
+    POSITION: absolute;
+    WIDTH: 178px;
+    HEIGHT: 335px;
+    TOP: 50px;
+    RIGHT: 0px
+}
+
+.youzhong {
+    Z-INDEX: 99999;
+    POSITION: absolute;
+    TOP: 500px;
+    RIGHT: 250px
+}
