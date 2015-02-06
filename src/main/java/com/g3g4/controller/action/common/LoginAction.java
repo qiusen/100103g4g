@@ -6,6 +6,7 @@ import org.apache.commons.logging.LogFactory;
 import com.g3g4.controller.action.BaseAction;
 import com.g3g4.model.Member;
 import com.g3g4.service.IMemberService;
+import com.g3g4.service.INoticeService;
 import com.g3g4.util.MD5Util;
 
 /**
@@ -23,6 +24,15 @@ public class LoginAction extends BaseAction {
 	
 	private IMemberService memberService;
 	
+	private INoticeService noticeService;
+
+	public INoticeService getNoticeService() {
+		return noticeService;
+	}
+
+	public void setNoticeService(INoticeService noticeService) {
+		this.noticeService = noticeService;
+	}
 
 	public IMemberService getMemberService() {
 		return memberService;
@@ -57,6 +67,13 @@ public class LoginAction extends BaseAction {
 				
 				//存session
 				this.getSession().setAttribute("member", memberVO);
+				
+				//取出前五条公告
+//				Notice notice = new Notice();
+//				notice.setCount(5);
+//				
+//				List<Notice> noticeList = noticeService.selectNoticeByLimit(notice);
+//				this.getRequest().setAttribute("noticeList", noticeList);
 				
 				
 			}else{

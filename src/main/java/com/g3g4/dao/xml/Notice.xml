@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.g3g4.dao.INoticeDAO">
+	
+	<cache flushInterval="600000" eviction="LRU" type="org.mybatis.caches.oscache.OSCache"/>
+	
+	<sql id="noticeLikeWhere">
+		<where>
+            <if test ="id != null and id > -1">
+				and `ID` = #{id}
+			</if>
+	        <if test ="title != null and title != ''">
+			    and `TITLE` like '%${title}%'
+		    </if>
+	        <if test ="content != null and content != ''">
+			    and `CONTENT` like '%${content}%'
+		    </if>
+	        <if test ="creator != null and creator != ''">
+			    and `CREATOR` like '%${creator}%'
+		    </if>
+	        <if test ="updator != null and updator != ''">
+			    and `UPDATOR` like '%${updator}%'
+		    </if>
+		</where>
+	</sql>
+	
+	<sql id="noticePage">
+		<if test="null != start">
+		  limit #{start},#{pageSize}
+		</if>
+	</sql>
+	
+	<sql id="noticeField">
+		`ID`, `TITLE`, `CONTENT`, `CREATOR`, `CREATETIME`, `UPDATOR`, `UPDATETIME`
+	</sql>
+	
+	<resultMap id="noticeMap" type="notice">
+	    	<result property="id" column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="title" column="TITLE" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="content" column="CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="creator" column="CREATOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="createtime" column="CREATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	    	<result property="updator" column="UPDATOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="updatetime" column="UPDATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+	<insert id="addSaveNotice" parameterType="notice">
+		insert into `notice` (
+           `TITLE`, 
+           `CONTENT`, 
+           `CREATOR`, 
+           `CREATETIME`, 
+           `UPDATOR`, 
+           `UPDATETIME`
+		) values 
+		(
+            #{title}, 
+            #{content}, 
+            #{creator}, 
+            #{createtime}, 
+            #{updator}, 
+            #{updatetime}
+		)
+		<selectKey keyProperty="id"  resultType="java.lang.Integer">
+			select last_insert_id() as id from `notice` limit 1
+		</selectKey>
+	</insert>
+	
+	<delete id="deleteByIds" parameterType="String">
+		delete from `notice` ${_parameter}
+	</delete>
+	
+	<update id="editSaveNotice" parameterType="notice">
+		update `notice` set 
+              `TITLE` = #{title}, 
+              `CONTENT` = #{content}, 
+              `CREATOR` = #{creator}, 
+              `CREATETIME` = #{createtime}, 
+              `UPDATOR` = #{updator}, 
+              `UPDATETIME` = #{updatetime}
+        	where ID = #{id}
+	</update>
+	
+	<select id="selectNoticeById" parameterType="notice" resultMap="noticeMap"  >
+		SELECT * FROM `notice` where ID = #{id}
+	</select>
+	
+	<select id="getNoticeCount" parameterType="notice" resultType="Long" >
+		select count(*) from `notice`
+		<include refid="noticeLikeWhere" />
+	</select>
+	
+	<select id="selectAll" parameterType="notice" resultMap="noticeMap" >
+		select * from `notice`
+	</select>
+	
+	<select id="selectNoticeLike" parameterType="notice" resultMap="noticeMap" >
+		SELECT <include refid="noticeField" /> FROM `notice`
+	        <include refid="noticeLikeWhere" />
+			order by ID desc
+	        <include refid="noticePage" /> 
+	</select>
+	
+	<select id="selectNoticeByLimit" parameterType="notice" resultMap="noticeMap" >
+		SELECT <include refid="noticeField" /> FROM `notice`
+			order by ID desc
+	        limit 0, ${count}
+	</select>
+</mapper>

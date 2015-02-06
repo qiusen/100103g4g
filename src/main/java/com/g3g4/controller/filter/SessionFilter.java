@@ -44,15 +44,23 @@ public class SessionFilter implements Filter {
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		String nameSpaceStr = getRequestActionNameSpace((HttpServletRequest)request);
 		System.out.println("nameSpaceStr==" + nameSpaceStr);
-		if (nameSpaceStr.equalsIgnoreCase("") || nameSpaceStr.equalsIgnoreCase("/") || nameSpaceStr.equalsIgnoreCase("/public/common")) {
+		if (nameSpaceStr.equalsIgnoreCase("") || nameSpaceStr.equalsIgnoreCase("/")) {
 			chain.doFilter(request, response);
 		}else{
 			Member member = (Member) ((HttpServletRequest)request).getSession().getAttribute("member");
 			if (member != null) {
 				
 				//判断权限，放过/user下所有权限
-				if(nameSpaceStr.equalsIgnoreCase("/userInfo") || nameSpaceStr.equalsIgnoreCase("/managerInfo") || hasRights(httpRequest, member, nameSpaceStr)){
+				if(nameSpaceStr.equalsIgnoreCase("/common")){
 					chain.doFilter(request, response);
+				}else if(nameSpaceStr.equalsIgnoreCase("/op")){
+					String passwd2 = (String) ((HttpServletRequest)request).getSession().getAttribute("passwd2");
+					if(passwd2!=null && passwd2.trim().length()>0){
+						chain.doFilter(request, response);
+					}else{
+						chain.doFilter(request, response);
+						//httpResponse.sendRedirect(Property.BASE + "/jsp/common/passwd2.jsp");
+					}
 				}else{
 					httpResponse.sendRedirect(Property.BASE + "/jsp/common/noRights.jsp");
 				}

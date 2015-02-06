@@ -10,10 +10,31 @@
 			</property>
 	</bean>
 	
+	<bean id="index" class="com.g3g4.controller.action.common.IndexAction"
+		scope="prototype">
+			<property name="noticeService">
+				<ref bean="noticeService" />
+			</property>
+	</bean>
+	
 	<!-- 会员 action -->
 	  <bean id="memberAction" class="com.g3g4.controller.action.member.MemberAction" scope="prototype">
 			<property name="memberService">
 				<ref bean="memberService" />
+			</property>
+	  </bean>
+	  
+	  <!-- 新闻公告 action -->
+	  <bean id="noticeAction" class="com.g3g4.controller.action.notice.NoticeAction" scope="prototype">
+			<property name="noticeService">
+				<ref bean="noticeService" />
+			</property>
+	  </bean>
+	  
+	  <!-- 留言 action -->
+	  <bean id="commentAction" class="com.g3g4.controller.action.comment.CommentAction" scope="prototype">
+			<property name="commentService">
+				<ref bean="commentService" />
 			</property>
 	  </bean>
 	  

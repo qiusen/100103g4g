@@ -58,6 +58,21 @@ public class Member extends BaseModel{
 	private Integer bank;
 	
 	/**
+	 * 开户地址
+	 */
+	private String bankAddr;
+	
+	/**
+	 * 开户名
+	 */
+	private String bankName;
+	
+	/**
+	 * 银行账号
+	 */
+	private String bankAcco;
+	
+	/**
 	 * 一级密码
 	 */
 	private String passwd1;
@@ -321,4 +336,23 @@ public class Member extends BaseModel{
 	public void setExatetime(Date exatetime) {
 		this.exatetime = exatetime;
 	}
+	public String getBankAddr() {
+		return bankAddr;
+	}
+	public void setBankAddr(String bankAddr) {
+		this.bankAddr = bankAddr;
+	}
+	public String getBankName() {
+		return bankName;
+	}
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
+	}
+	public String getBankAcco() {
+		return bankAcco;
+	}
+	public void setBankAcco(String bankAcco) {
+		this.bankAcco = bankAcco;
+	}
+	
 }

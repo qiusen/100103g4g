@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.g3g4.dao.ICommentDAO">
+	
+	<cache flushInterval="600000" eviction="LRU" type="org.mybatis.caches.oscache.OSCache"/>
+	
+	<sql id="commentLikeWhere">
+		<where>
+            <if test ="id != null and id > -1">
+				and `ID` = #{id}
+			</if>
+            <if test ="type != null and type > -1">
+				and `TYPE` = #{type}
+			</if>
+	        <if test ="content != null and content != ''">
+			    and `CONTENT` like '%${content}%'
+		    </if>
+	        <if test ="revet != null and revet != ''">
+			    and `REVET` like '%${revet}%'
+		    </if>
+	        <if test ="creator != null and creator != ''">
+			    and `CREATOR` like '%${creator}%'
+		    </if>
+	        <if test ="revetor != null and revetor != ''">
+			    and `REVETOR` like '%${revetor}%'
+		    </if>
+		</where>
+	</sql>
+	
+	<sql id="commentPage">
+		<if test="null != start">
+		  limit #{start},#{pageSize}
+		</if>
+	</sql>
+	
+	<sql id="commentField">
+		`ID`, `TYPE`, `CONTENT`, `REVET`, `CREATOR`, `CREATETIME`, `REVETOR`, `REVETTIME`
+	</sql>
+	
+	<resultMap id="commentMap" type="comment">
+	    	<result property="id" column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="type" column="TYPE" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="content" column="CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="revet" column="REVET" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="creator" column="CREATOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="createtime" column="CREATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	    	<result property="revetor" column="REVETOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="revettime" column="REVETTIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+	<insert id="addSaveComment" parameterType="comment">
+		insert into `comment` (
+           `TYPE`, 
+           `CONTENT`, 
+           `REVET`, 
+           `CREATOR`, 
+           `CREATETIME`, 
+           `REVETOR`, 
+           `REVETTIME`
+		) values 
+		(
+            #{type}, 
+            #{content}, 
+            #{revet}, 
+            #{creator}, 
+            #{createtime}, 
+            #{revetor}, 
+            #{revettime}
+		)
+		<selectKey keyProperty="id"  resultType="java.lang.Integer">
+			select last_insert_id() as id from `comment` limit 1
+		</selectKey>
+	</insert>
+	
+	<delete id="deleteByIds" parameterType="String">
+		delete from `comment` ${_parameter}
+	</delete>
+	
+	<update id="editSaveComment" parameterType="comment">
+		update `comment` set 
+              `TYPE` = #{type}, 
+              `CONTENT` = #{content}, 
+              `REVET` = #{revet}, 
+              `CREATOR` = #{creator}, 
+              `CREATETIME` = #{createtime}, 
+              `REVETOR` = #{revetor}, 
+              `REVETTIME` = #{revettime}
+        	where ID = #{id}
+	</update>
+	
+	<select id="selectCommentById" parameterType="comment" resultMap="commentMap"  >
+		SELECT * FROM `comment` where ID = #{id}
+	</select>
+	
+	<select id="getCommentCount" parameterType="comment" resultType="Long" >
+		select count(*) from `comment`
+		<include refid="commentLikeWhere" />
+	</select>
+	
+	<select id="selectAll" parameterType="comment" resultMap="commentMap" >
+		select * from `comment`
+	</select>
+	
+	<select id="selectCommentLike" parameterType="comment" resultMap="commentMap" >
+		SELECT <include refid="commentField" /> FROM `comment`
+	        <include refid="commentLikeWhere" />
+			order by ID desc
+	        <include refid="commentPage" /> 
+	</select>
+</mapper>

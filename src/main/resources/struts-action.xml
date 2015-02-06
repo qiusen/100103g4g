@@ -11,6 +11,10 @@
 			<result name="logOff" type="redirect">/index.jsp</result>
 			<interceptor-ref name="common-params" />
 		</action>
+		<action name="index" class="index">
+		    <result name="success" type="dispatcher">/jsp/index.jsp</result>
+			<interceptor-ref name="common-params" />
+		</action>
 	</package>
 	<!-- 公用的Action End -->
 
@@ -39,5 +43,30 @@
         </action>
     </package> 
     <!-- 会员Action End -->
+    
+    <!-- 新闻公告Action Begin -->
+    <package name="struts-admin-notice" namespace="/common" extends="struts-interceptor">
+		<action name="noticeAction" class="noticeAction">
+			<result name="success" type="dispatcher">/jsp/notice/noticeList.jsp</result>
+			<result name="view" type="dispatcher">/jsp/notice/noticeView.jsp</result>
+			<interceptor-ref name="common-params"/>
+        </action>
+    </package> 
+    <!-- 新闻公告Action End -->
+    
+    <!-- 留言Action Begin -->
+    <package name="struts-admin-comment" namespace="/op" extends="struts-interceptor">
+		<action name="commentAction" class="commentAction">
+			<result name="success" type="dispatcher">/jsp/comment/commentList.jsp</result>
+			<result name="add" type="dispatcher">/jsp/comment/commentAdd.jsp</result>
+			<result name="addSave" type="redirectAction">
+				<param name="actionName">commentAction</param>
+				<param name="namespace">/op/comment</param>
+			</result>
+
+			<interceptor-ref name="common-params"/>
+        </action>
+    </package> 
+    <!-- 留言Action End -->
     
 </struts>

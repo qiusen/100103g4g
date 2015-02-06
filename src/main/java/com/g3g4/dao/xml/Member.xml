@@ -85,7 +85,7 @@
 	</sql>
 	
 	<sql id="memberField">
-		`ID`, `CODE`, `NAME`, `MOBILE`, `SERV_CODE`, `RECO_CODE`, `MANAGER_CODE`, `AREA`, `INDEN`, `BANK`, `PASSWD1`, `PASSWD2`, `PASSWD3`, `MOBILE2`, `QQ`, `POST_CODE`, `ADDR`, `REMARK`, `TAX_COIN`, `CASH_COIN`, `SHOP_COIN`, `LEVEL`, `STATUS`, `CREATOR`, `CREATETIME`, `UPDATOR`, `UPDATETIME`, `EXATOR`, `EXATETIME`
+		`ID`, `CODE`, `NAME`, `MOBILE`, `SERV_CODE`, `RECO_CODE`, `MANAGER_CODE`, `AREA`, `INDEN`, `BANK`, `BANK_ADDR`,`BANK_NAME`, `BANK_ACCO`, `PASSWD1`, `PASSWD2`, `PASSWD3`, `MOBILE2`, `QQ`, `POST_CODE`, `ADDR`, `REMARK`, `TAX_COIN`, `CASH_COIN`, `SHOP_COIN`, `LEVEL`, `STATUS`, `CREATOR`, `CREATETIME`, `UPDATOR`, `UPDATETIME`, `EXATOR`, `EXATETIME`
 	</sql>
 	
 	<resultMap id="memberMap" type="member">
@@ -99,6 +99,9 @@
 	    	<result property="area" column="AREA" javaType="java.lang.String" jdbcType="VARCHAR" />
 	    	<result property="inden" column="INDEN" javaType="java.lang.String" jdbcType="VARCHAR" />
 	    	<result property="bank" column="BANK" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    <result property="bankAddr" column="BANK_ADDR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="bankName" column="BANK_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="bankAcco" column="BANK_ACCO" javaType="java.lang.String" jdbcType="VARCHAR" />
 	    	<result property="passwd1" column="PASSWD1" javaType="java.lang.String" jdbcType="VARCHAR" />
 	    	<result property="passwd2" column="PASSWD2" javaType="java.lang.String" jdbcType="VARCHAR" />
 	    	<result property="passwd3" column="PASSWD3" javaType="java.lang.String" jdbcType="VARCHAR" />
@@ -131,6 +134,9 @@
            `AREA`, 
            `INDEN`, 
            `BANK`, 
+           `BANK_ADDR`, 
+           `BANK_NAME`, 
+           `BANK_ACCO`,
            `PASSWD1`, 
            `PASSWD2`, 
            `PASSWD3`, 
@@ -161,6 +167,9 @@
             #{area}, 
             #{inden}, 
             #{bank}, 
+            #{bankAddr}, 
+            #{bankName}, 
+            #{bankAcco},
             #{passwd1}, 
             #{passwd2}, 
             #{passwd3}, 

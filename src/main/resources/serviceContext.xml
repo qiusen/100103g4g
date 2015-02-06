@@ -3,4 +3,10 @@
 <beans>
     <!-- 会员 service -->	
 	  <bean id="memberService" class="com.g3g4.service.impl.MemberServiceImpl"/>
+	  
+	  <!-- 新闻公告 service -->	
+	  <bean id="noticeService" class="com.g3g4.service.impl.NoticeServiceImpl"/>
+	  
+	  <!-- 留言 service -->	
+	  <bean id="commentService" class="com.g3g4.service.impl.CommentServiceImpl"/>
 </beans>

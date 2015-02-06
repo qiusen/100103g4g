@@ -2,12 +2,15 @@
 		<ul class="navlist">
 			<li style="width: 2px;"><a href="#"></a></li>
 
-			<li><a href="index.html">首页</a></li>
+			<li><a href="${base }/index.${actionExt }" target="mainFrame">首页</a></li>
 
 			<li><a href="#">资料信息</a>
 				<ul>
-					<li><a href="#" target="_self">新闻公告</a></li>
-				</ul></li>
+					<li><a href="${base }/common/noticeAction.${actionExt }" target="mainFrame">新闻公告</a></li>
+					<li><a href="${base }/op/commentAction!add.${actionExt }" target="mainFrame">我要留言</a></li>
+					<li><a href="${base }/op/commentAction.${actionExt }" target="mainFrame">查看留言</a></li>
+				</ul>
+			</li>
 
 			<li><a href="#">会员管理</a>
 				<ul>
