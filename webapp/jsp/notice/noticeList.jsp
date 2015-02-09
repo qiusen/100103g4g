@@ -11,6 +11,12 @@
 
 <link href="${base}/css/info.css" type="text/css" rel="stylesheet">
 <title>信息管理系统-新闻公告</title>
+<script type="text/javascript">
+function goPage(v){
+	document.getElementById("pageNo").value=v;
+	document.getElementById("noticeForm").submit();
+}
+</script>
 </head>
 <body>
 <table border="0" cellpadding="0" cellspacing="0" width="745">
@@ -40,10 +46,14 @@
 		<tr>
 			<td colspan="2" class="newGjmyGyUll" align="center">
 				<div>
+				<form name="noticeForm" id="noticeForm" method="post" action="noticeAction.${actionExt}" >
+				<input type="hidden" name="pageNo" id="pageNo" value="${requestScope.pageInfo.page}" />
+				<input type="hidden" name="pageSize" id="pageSize" value="${requestScope.pageInfo.pageSize}" />
 					<table class="table" id="GridView1"
 						style="width: 100%; border-collapse: collapse;" border="0"
 						cellpadding="3" cellspacing="0">
 						<tbody>
+						
 							<c:forEach items="${resultList }" var="notice" varStatus="i">
 							<c:choose>
 							<c:when test="${i.index%2==0 }">
@@ -70,8 +80,10 @@
 							</c:otherwise>
 							</c:choose>
 							</c:forEach>
+							<%@ include file="/jsp/common/page.jsp"%>
 						</tbody>
 					</table>
+				</form>
 				</div>
 
 			</td>

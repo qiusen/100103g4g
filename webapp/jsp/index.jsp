@@ -71,56 +71,6 @@
 								</c:choose>
 									
 								</c:forEach>
-								<tr class="gvRowStyle"
-									style="color: #4A3C8C; background-color: WhiteSmoke; border-color: DarkGray; border-width: 0px; border-style: Solid; height: 20px;"
-									align="center">
-									<td style="width: 2%;"></td>
-									<td align="left"><a
-										href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_1xwgg123.aspx?id=802856">再次强调关于4G营销体验中心的管理注意事项</a>
-									</td>
-									<td style="color: Black; width: 120px;">2015-1-5
-										16:05:57</td>
-								</tr>
-								<tr class="gvAlternatingRow"
-									style="color: #4A3C8C; background-color: White; border-color: DarkGray; border-width: 0px; border-style: Solid; height: 20px;"
-									align="center">
-									<td style="width: 2%;"></td>
-									<td align="left"><a
-										href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_1xwgg123.aspx?id=802852">重要通告</a>
-									</td>
-									<td style="color: Black; width: 120px;">2015-1-4
-										15:24:04</td>
-								</tr>
-								<tr class="gvRowStyle"
-									style="color: #4A3C8C; background-color: WhiteSmoke; border-color: DarkGray; border-width: 0px; border-style: Solid; height: 20px;"
-									align="center">
-									<td style="width: 2%;"></td>
-									<td align="left"><a
-										href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_1xwgg123.aspx?id=802851">关于元旦放假的通知</a>
-									</td>
-									<td style="color: Black; width: 120px;">2014-12-30
-										16:56:18</td>
-								</tr>
-								<tr class="gvAlternatingRow"
-									style="color: #4A3C8C; background-color: White; border-color: DarkGray; border-width: 0px; border-style: Solid; height: 20px;"
-									align="center">
-									<td style="width: 2%;"></td>
-									<td align="left"><a
-										href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_1xwgg123.aspx?id=802850">紧
-											急 通 知</a></td>
-									<td style="color: Black; width: 120px;">2014-12-30
-										9:55:01</td>
-								</tr>
-								<tr class="gvRowStyle"
-									style="color: #4A3C8C; background-color: WhiteSmoke; border-color: DarkGray; border-width: 0px; border-style: Solid; height: 20px;"
-									align="center">
-									<td style="width: 2%;"></td>
-									<td align="left"><a
-										href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_1xwgg123.aspx?id=802849">关于筹备成立4G商城线下服务体系的相关公告</a>
-									</td>
-									<td style="color: Black; width: 120px;">2014-12-27
-										19:23:25</td>
-								</tr>
 							</tbody>
 						</table>
 					</div>
