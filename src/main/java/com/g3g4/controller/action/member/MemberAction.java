@@ -1,14 +1,14 @@
 package com.g3g4.controller.action.member;
 
+import java.util.Date;
 import java.util.List;
 
 import com.g3g4.common.Property;
 import com.g3g4.controller.action.BaseAction;
-import com.g3g4.util.Page;
-import com.g3g4.util.TypeUtil;
-import com.g3g4.util.json.JSONUtil;
 import com.g3g4.model.Member;
 import com.g3g4.service.IMemberService;
+import com.g3g4.util.Page;
+import com.g3g4.util.TypeUtil;
 
 /**
  * 会员Action
@@ -21,6 +21,8 @@ import com.g3g4.service.IMemberService;
 public class MemberAction extends BaseAction {
 	private Member member = new Member();
 	private IMemberService memberService;
+	
+	private int status = 0;
 	
 	public Member getMember() {
 		return member;
@@ -36,50 +38,62 @@ public class MemberAction extends BaseAction {
 	public void setMemberService(IMemberService memberService) {
 		this.memberService = memberService;
 	}
+	
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
 	/* 
 	 * 会员查询
 	 * @see com.opensymphony.xwork2.ActionSupport#execute()
 	 */
 	public String execute(){
-//		try {
-//			String pageSizeStr = this.getRequest().getParameter("pageSize");
-//			String pageNoStr = this.getRequest().getParameter("pageNo");
-//			int pageSize = 0;
-//			int pageNo = 0;
-//			
-//			pageSize = TypeUtil.stringToInt(pageSizeStr);
-//			if (pageSize <= 0) {
-//				pageSize = Property.PAGESIZE;
-//			}
-//
-//			pageNo = TypeUtil.stringToInt(pageNoStr);
-//			if (pageSize > 0) {
-//				this.setManagerPageSize(pageSize);
-//			}else{
-//				this.setManagerPageSize(Property.PAGESIZE);
-//			}
-//
-//			Page pageInfo = memberService.selectMember(member,this.getManagerPageSize());
-//			
-//			if (pageNo > 0) {
-//				pageInfo.setPage(pageNo);
-//			} else {
-//				pageInfo.setPage(0);
-//			}
-//			
-//			List<Member> resultList = this.memberService.selectMember(member,pageInfo);
-//			
-//			this.getRequest().setAttribute("pageInfo", pageInfo);
-//			this.getRequest().setAttribute("resultList", resultList);
-//			this.getRequest().setAttribute("actionName","memberAction");
-//
+		try {
+			this.status = TypeUtil.stringToInt(this.getRequest().getParameter("status"));
+			member.setStatus(status);
+			this.getRequest().setAttribute("status", status);
+			
+			//当前用户注册的人
+			Member memberVO = (Member)this.getSession().getAttribute("member");
+			member.setCreator(memberVO.getCode());
+			
+			String pageSizeStr = this.getRequest().getParameter("pageSize");
+			String pageNoStr = this.getRequest().getParameter("pageNo");
+			int pageSize = 0;
+			int pageNo = 0;
+			
+			pageSize = TypeUtil.stringToInt(pageSizeStr);
+			if (pageSize <= 0) {
+				pageSize = Property.PAGESIZE;
+			}
+
+			pageNo = TypeUtil.stringToInt(pageNoStr);
+
+			Page pageInfo = memberService.selectMember(member,Property.PAGESIZE);
+			
+			if (pageNo > 0) {
+				pageInfo.setPage(pageNo);
+			} else {
+				pageInfo.setPage(0);
+			}
+			
+			List<Member> resultList = this.memberService.selectMember(member,pageInfo);
+			
+			this.getRequest().setAttribute("pageInfo", pageInfo);
+			this.getRequest().setAttribute("resultList", resultList);
+			this.getRequest().setAttribute("actionName","memberAction");
+
 //			String json = "\"Rows\":" + JSONUtil.objectArrayToJson(resultList)+", \"Total\":" + pageInfo.getResultCount();
 //			System.out.println("Member json:::::::::::::::::::" + json);
 //			this.getRequest().setAttribute("json", json);
-//			
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return SUCCESS;
 	}
 	
@@ -96,7 +110,20 @@ public class MemberAction extends BaseAction {
 	 * @return
 	 */
 	public String addSave(){
+		member.setStatus(0);	//未审
+		member.setTaxCoin(0.00);
+		member.setCashCoin(0.00);
+		member.setShopCoin(0.00);
+		member.setLevel(0);
+		
+		Member memberVO = (Member)this.getSession().getAttribute("member");
+		member.setCreator(memberVO.getCode());
+		member.setCreatetime(new Date());
+		
 		memberService.addSave(member);
+		
+		this.status = 0;
+		
 		return "addSave";
 	}
 	

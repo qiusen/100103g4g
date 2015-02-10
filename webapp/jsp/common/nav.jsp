@@ -20,9 +20,9 @@
 			<li><a href="#">会员管理</a>
 				<ul>
 					<li><a href="userlogin.html" target="_self">市场团队</a></li>
-					<li><a href="userlogin.html" target="_self">注册会员</a></li>
-					<li><a href="userlogin.html" target="_self">未审会员</a></li>
-					<li><a href="userlogin.html" target="_self">已审会员</a></li>
+					<li><a href="${base }/op/memberAction!add.${actionExt }" target="mainFrame">注册会员</a></li>
+					<li><a href="${base }/op/memberAction.${actionExt }?status=0" target="mainFrame">未审会员</a></li>
+					<li><a href="${base }/op/memberAction.${actionExt }?status=1" target="mainFrame">已审会员</a></li>
 					<!--登陆进去后进入：usermanage.html-->
 				</ul></li>
 			<li><a href="#">奖金业绩</a>

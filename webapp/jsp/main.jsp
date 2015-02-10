@@ -63,7 +63,7 @@ window.location="${base}";
 		<%@ include file="/jsp/common/left.jsp"%>
 		</div>
 		<div class="right">
-		<iframe scrolling="no" src="${base }/index.${actionExt}" width="745" frameborder="0" height="700" id="mainFrame" name="mainFrame"></iframe>
+		<iframe scrolling="no" src="${base }/index.${actionExt}" width="745" frameborder="0" height="1000" id="mainFrame" name="mainFrame"></iframe>
 		<!-- 
 			<table border="0" cellpadding="0" cellspacing="0" width="745">
 				<tbody>
