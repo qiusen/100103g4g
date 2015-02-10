@@ -7,6 +7,7 @@ import com.g3g4.common.Property;
 import com.g3g4.controller.action.BaseAction;
 import com.g3g4.model.Member;
 import com.g3g4.service.IMemberService;
+import com.g3g4.util.MD5Util;
 import com.g3g4.util.Page;
 import com.g3g4.util.TypeUtil;
 
@@ -119,6 +120,10 @@ public class MemberAction extends BaseAction {
 		Member memberVO = (Member)this.getSession().getAttribute("member");
 		member.setCreator(memberVO.getCode());
 		member.setCreatetime(new Date());
+		
+		member.setPasswd1(MD5Util.stringToMD5(member.getPasswd1()));
+		member.setPasswd2(MD5Util.stringToMD5(member.getPasswd2()));
+		member.setPasswd3(MD5Util.stringToMD5(member.getPasswd3()));
 		
 		memberService.addSave(member);
 		
