@@ -38,4 +38,11 @@
 			</property>
 	  </bean>
 	  
+	  <!-- 购买说明 action -->
+	  <bean id="buyExplainAction" class="com.g3g4.controller.action.buyExplain.BuyExplainAction" scope="prototype">
+			<property name="buyExplainService">
+				<ref bean="buyExplainService" />
+			</property>
+	  </bean>
+	  
 </beans>

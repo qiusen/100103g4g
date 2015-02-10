@@ -9,4 +9,8 @@
 	  
 	  <!-- 留言 service -->	
 	  <bean id="commentService" class="com.g3g4.service.impl.CommentServiceImpl"/>
+	  
+	  <!-- 购买说明 service -->	
+	  <bean id="buyExplainService" class="com.g3g4.service.impl.BuyExplainServiceImpl"/>
+	  
 </beans>

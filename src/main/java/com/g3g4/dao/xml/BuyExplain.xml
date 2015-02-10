@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.g3g4.dao.IBuyExplainDAO">
+	
+	<cache flushInterval="600000" eviction="LRU" type="org.mybatis.caches.oscache.OSCache"/>
+	
+	<sql id="buyExplainLikeWhere">
+		<where>
+            <if test ="id != null and id > -1">
+				and `ID` = #{id}
+			</if>
+	        <if test ="content != null and content != ''">
+			    and `CONTENT` like '%${content}%'
+		    </if>
+	        <if test ="updator != null and updator != ''">
+			    and `UPDATOR` like '%${updator}%'
+		    </if>
+		</where>
+	</sql>
+	
+	<sql id="buyExplainPage">
+		<if test="null != start">
+		  limit #{start},#{pageSize}
+		</if>
+	</sql>
+	
+	<sql id="buyExplainField">
+		`ID`, `CONTENT`, `UPDATOR`, `UPDATETIME`
+	</sql>
+	
+	<resultMap id="buyExplainMap" type="buyExplain">
+	    	<result property="id" column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="content" column="CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="updator" column="UPDATOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="updatetime" column="UPDATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+	<insert id="addSaveBuyExplain" parameterType="buyExplain">
+		insert into `buy_explain` (
+           `CONTENT`, 
+           `UPDATOR`, 
+           `UPDATETIME`
+		) values 
+		(
+            #{content}, 
+            #{updator}, 
+            #{updatetime}
+		)
+		<selectKey keyProperty="id"  resultType="java.lang.Integer">
+			select last_insert_id() as id from `buy_explain` limit 1
+		</selectKey>
+	</insert>
+	
+	<delete id="deleteByIds" parameterType="String">
+		delete from `buy_explain` ${_parameter}
+	</delete>
+	
+	<update id="editSaveBuyExplain" parameterType="buyExplain">
+		update `buy_explain` set 
+              `CONTENT` = #{content}, 
+              `UPDATOR` = #{updator}, 
+              `UPDATETIME` = #{updatetime}
+        	where ID = #{id}
+	</update>
+	
+	<select id="selectBuyExplainById" parameterType="buyExplain" resultMap="buyExplainMap"  >
+		SELECT * FROM `buy_explain` where ID = #{id}
+	</select>
+	
+	<select id="getBuyExplainCount" parameterType="buyExplain" resultType="Long" >
+		select count(*) from `buy_explain`
+		<include refid="buyExplainLikeWhere" />
+	</select>
+	
+	<select id="selectAll" parameterType="buyExplain" resultMap="buyExplainMap" >
+		select * from `buy_explain`
+	</select>
+	
+	<select id="selectBuyExplainLike" parameterType="buyExplain" resultMap="buyExplainMap" >
+		SELECT <include refid="buyExplainField" /> FROM `buy_explain`
+	        <include refid="buyExplainLikeWhere" />
+			order by ID desc
+	        <include refid="buyExplainPage" /> 
+	</select>
+</mapper>

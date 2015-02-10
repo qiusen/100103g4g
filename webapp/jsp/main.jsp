@@ -10,7 +10,7 @@
 <link href="${base}/css/newadd.css" rel="stylesheet" type="text/css">
 
 <link href="${base}/css/info.css" type="text/css" rel="stylesheet">
-<title>信息管理系统-新闻</title>
+<title>信息管理系统</title>
 <script language="javascript">
 <c:if test="${sessionScope.member==null}">
 window.location="${base}";

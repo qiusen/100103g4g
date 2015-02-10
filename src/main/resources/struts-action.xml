@@ -69,4 +69,14 @@
     </package> 
     <!-- 留言Action End -->
     
+    <!-- 购买说明Action Begin -->
+    <package name="struts-admin-buyExplain" namespace="/common" extends="struts-interceptor">
+		<action name="buyExplainAction" class="buyExplainAction">
+			<result name="success" type="dispatcher">/jsp/buyExplain/buyExplainView.jsp</result>
+			
+			<interceptor-ref name="common-params"/>
+        </action>
+    </package> 
+    <!-- 购买说明Action End -->
+    
 </struts>
