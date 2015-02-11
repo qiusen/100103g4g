@@ -125,6 +125,9 @@ public class MemberAction extends BaseAction {
 		member.setPasswd2(MD5Util.stringToMD5(member.getPasswd2()));
 		member.setPasswd3(MD5Util.stringToMD5(member.getPasswd3()));
 		
+		member.setAc(0);
+		member.setBc(0);
+		
 		memberService.addSave(member);
 		
 		this.status = 0;

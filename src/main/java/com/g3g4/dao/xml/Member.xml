@@ -85,7 +85,7 @@
 	</sql>
 	
 	<sql id="memberField">
-		`ID`, `CODE`, `NAME`, `MOBILE`, `SERV_CODE`, `RECO_CODE`, `MANAGER_CODE`, `AREA`, `INDEN`, `BANK`, `BANK_ADDR`,`BANK_NAME`, `BANK_ACCO`, `PASSWD1`, `PASSWD2`, `PASSWD3`, `MOBILE2`, `QQ`, `POST_CODE`, `ADDR`, `REMARK`, `TAX_COIN`, `CASH_COIN`, `SHOP_COIN`, `LEVEL`, `STATUS`, `CREATOR`, `CREATETIME`, `UPDATOR`, `UPDATETIME`, `EXATOR`, `EXATETIME`
+		`ID`, `CODE`, `NAME`, `MOBILE`, `SERV_CODE`, `RECO_CODE`, `MANAGER_CODE`, `AREA`, `INDEN`, `BANK`, `BANK_ADDR`,`BANK_NAME`, `BANK_ACCO`, `PASSWD1`, `PASSWD2`, `PASSWD3`, `MOBILE2`, `QQ`, `POST_CODE`, `ADDR`, `REMARK`, `TAX_COIN`, `CASH_COIN`, `SHOP_COIN`, `LEVEL`, `STATUS`, `AC`, `BC`, `CREATOR`, `CREATETIME`, `UPDATOR`, `UPDATETIME`, `EXATOR`, `EXATETIME`
 	</sql>
 	
 	<resultMap id="memberMap" type="member">
@@ -115,6 +115,8 @@
 	    	<result property="shopCoin" column="SHOP_COIN" javaType="java.lang.Double" jdbcType="DOUBLE" />
 	    	<result property="level" column="LEVEL" javaType="java.lang.Integer" jdbcType="INTEGER" />
 	    	<result property="status" column="STATUS" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="ac" column="AC" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="bc" column="BC" javaType="java.lang.Integer" jdbcType="INTEGER" />
 	    	<result property="creator" column="CREATOR" javaType="java.lang.String" jdbcType="VARCHAR" />
 	    	<result property="createtime" column="CREATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
 	    	<result property="updator" column="UPDATOR" javaType="java.lang.String" jdbcType="VARCHAR" />
@@ -150,6 +152,8 @@
            `SHOP_COIN`, 
            `LEVEL`, 
            `STATUS`, 
+           `AC`, 
+           `BC`, 
            `CREATOR`, 
            `CREATETIME`, 
            `UPDATOR`, 
@@ -183,6 +187,8 @@
             #{shopCoin}, 
             #{level}, 
             #{status}, 
+            #{ac}, 
+            #{bc}, 
             #{creator}, 
             #{createtime}, 
             #{updator}, 

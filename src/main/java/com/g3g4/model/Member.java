@@ -138,6 +138,16 @@ public class Member extends BaseModel{
 	private Integer status;
 	
 	/**
+	 * A区人数
+	 */
+	private Integer ac;
+	
+	/**
+	 * B区人数
+	 */
+	private Integer bc;
+	
+	/**
 	 * 创建人
 	 */
 	private String creator;
@@ -353,6 +363,18 @@ public class Member extends BaseModel{
 	}
 	public void setBankAcco(String bankAcco) {
 		this.bankAcco = bankAcco;
+	}
+	public Integer getAc() {
+		return ac;
+	}
+	public void setAc(Integer ac) {
+		this.ac = ac;
+	}
+	public Integer getBc() {
+		return bc;
+	}
+	public void setBc(Integer bc) {
+		this.bc = bc;
 	}
 	
 }

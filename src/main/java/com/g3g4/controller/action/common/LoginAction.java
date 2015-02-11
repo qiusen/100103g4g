@@ -61,7 +61,7 @@ public class LoginAction extends BaseAction {
 			if(memberVO!=null){
 				//若帐号被冻结  登录失败
 				if(memberVO.getStatus()==0){
-					this.getRequest().setAttribute("errorStr", "您的帐号存在问题（已失效），请联系管理员！！！");
+					this.getRequest().setAttribute("errorStr", "您的帐号未审核，请联系管理员！！！");
 					return "login";
 				}
 				
