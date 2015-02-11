@@ -5,8 +5,10 @@ import org.apache.commons.logging.LogFactory;
 
 import com.g3g4.controller.action.BaseAction;
 import com.g3g4.model.Member;
+import com.g3g4.model.ScrollNotice;
 import com.g3g4.service.IMemberService;
 import com.g3g4.service.INoticeService;
+import com.g3g4.service.IScrollNoticeService;
 import com.g3g4.util.MD5Util;
 
 /**
@@ -25,6 +27,8 @@ public class LoginAction extends BaseAction {
 	private IMemberService memberService;
 	
 	private INoticeService noticeService;
+	
+	private IScrollNoticeService scrollNoticeService;
 
 	public INoticeService getNoticeService() {
 		return noticeService;
@@ -40,6 +44,14 @@ public class LoginAction extends BaseAction {
 
 	public void setMemberService(IMemberService memberService) {
 		this.memberService = memberService;
+	}
+
+	public IScrollNoticeService getScrollNoticeService() {
+		return scrollNoticeService;
+	}
+
+	public void setScrollNoticeService(IScrollNoticeService scrollNoticeService) {
+		this.scrollNoticeService = scrollNoticeService;
 	}
 
 	/* (non-Javadoc)
@@ -68,6 +80,11 @@ public class LoginAction extends BaseAction {
 				//存session
 				this.getSession().setAttribute("member", memberVO);
 				
+				//取出滚动公告
+				ScrollNotice scrollNotice = new ScrollNotice();
+				scrollNotice.setId(1);
+				ScrollNotice scrollNoticeVO = scrollNoticeService.selectScrollNoticeById(scrollNotice);
+				this.getSession().setAttribute("scrollNotice", scrollNoticeVO);
 				//取出前五条公告
 //				Notice notice = new Notice();
 //				notice.setCount(5);

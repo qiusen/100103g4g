@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.g3g4.dao.IScrollNoticeDAO">
+	
+	<cache flushInterval="600000" eviction="LRU" type="org.mybatis.caches.oscache.OSCache"/>
+	
+	<sql id="scrollNoticeLikeWhere">
+		<where>
+            <if test ="id != null and id > -1">
+				and `ID` = #{id}
+			</if>
+	        <if test ="content != null and content != ''">
+			    and `CONTENT` like '%${content}%'
+		    </if>
+	        <if test ="updator != null and updator != ''">
+			    and `UPDATOR` like '%${updator}%'
+		    </if>
+		</where>
+	</sql>
+	
+	<sql id="scrollNoticePage">
+		<if test="null != start">
+		  limit #{start},#{pageSize}
+		</if>
+	</sql>
+	
+	<sql id="scrollNoticeField">
+		`ID`, `CONTENT`, `CREATETIME`, `UPDATOR`, `UPDATETIME`
+	</sql>
+	
+	<resultMap id="scrollNoticeMap" type="scrollNotice">
+	    	<result property="id" column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="content" column="CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="createtime" column="CREATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	    	<result property="updator" column="UPDATOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="updatetime" column="UPDATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+	<insert id="addSaveScrollNotice" parameterType="scrollNotice">
+		insert into `scroll_notice` (
+           `CONTENT`, 
+           `CREATETIME`, 
+           `UPDATOR`, 
+           `UPDATETIME`
+		) values 
+		(
+            #{content}, 
+            #{createtime}, 
+            #{updator}, 
+            #{updatetime}
+		)
+		<selectKey keyProperty="id"  resultType="java.lang.Integer">
+			select last_insert_id() as id from `scroll_notice` limit 1
+		</selectKey>
+	</insert>
+	
+	<delete id="deleteByIds" parameterType="String">
+		delete from `scroll_notice` ${_parameter}
+	</delete>
+	
+	<update id="editSaveScrollNotice" parameterType="scrollNotice">
+		update `scroll_notice` set 
+              `CONTENT` = #{content}, 
+              `CREATETIME` = #{createtime}, 
+              `UPDATOR` = #{updator}, 
+              `UPDATETIME` = #{updatetime}
+        	where ID = #{id}
+	</update>
+	
+	<select id="selectScrollNoticeById" parameterType="scrollNotice" resultMap="scrollNoticeMap"  >
+		SELECT * FROM `scroll_notice` where ID = #{id}
+	</select>
+	
+	<select id="getScrollNoticeCount" parameterType="scrollNotice" resultType="Long" >
+		select count(*) from `scroll_notice`
+		<include refid="scrollNoticeLikeWhere" />
+	</select>
+	
+	<select id="selectAll" parameterType="scrollNotice" resultMap="scrollNoticeMap" >
+		select * from `scroll_notice`
+	</select>
+	
+	<select id="selectScrollNoticeLike" parameterType="scrollNotice" resultMap="scrollNoticeMap" >
+		SELECT <include refid="scrollNoticeField" /> FROM `scroll_notice`
+	        <include refid="scrollNoticeLikeWhere" />
+			order by ID desc
+	        <include refid="scrollNoticePage" /> 
+	</select>
+</mapper>

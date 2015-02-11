@@ -13,4 +13,7 @@
 	  <!-- 购买说明 service -->	
 	  <bean id="buyExplainService" class="com.g3g4.service.impl.BuyExplainServiceImpl"/>
 	  
+	  <!-- 滚动公告 service -->	
+	  <bean id="scrollNoticeService" class="com.g3g4.service.impl.ScrollNoticeServiceImpl"/>
+	  
 </beans>
