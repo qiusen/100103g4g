@@ -136,6 +136,14 @@ public class MemberAction extends BaseAction {
 	}
 	
 	/**
+	 * 展示
+	 * @return
+	 */
+	public String show(){
+		return "show";
+	}
+	
+	/**
 	 * 修改 会员
 	 * @return
 	 */

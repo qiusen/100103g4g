@@ -37,7 +37,7 @@
 
 			<li><a href="#">个人资料</a>
 				<ul>
-					<li><a href="userlogin.html" target="_self">个人信息</a></li>
+					<li><a href="${base }/op/memberAction!show.${actionExt }" target="mainFrame">个人信息</a></li>
 					<!--登陆进去后进入：userinfo.html-->
 					<li><a href="userlogin.html" target="_self">修改密码</a></li>
 					<!--登陆进去后进入：updatePass.html-->
