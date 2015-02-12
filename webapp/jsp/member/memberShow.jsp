@@ -227,7 +227,7 @@
                    地址：
                </td>
                <td>
-                   <input name="user_address" readonly="readonly" id="${sessionScope.member.addr }"
+                   <input name="user_address" readonly="readonly" value="${sessionScope.member.addr }"
                           style="width:160px;" type="text">
                </td>
                <td>

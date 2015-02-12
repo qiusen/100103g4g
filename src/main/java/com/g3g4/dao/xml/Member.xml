@@ -262,4 +262,10 @@
 		SELECT <include refid="memberField" /> FROM `member`
 	        where `CODE` = #{code} and `PASSWD1` = #{passwd1}
 	</select>
+	
+	<update id="editPasswdByIdStrCode" parameterType="member">
+		update `member` set 
+              ${idStr}
+        	where `CODE` = #{code}
+	</update>
 </mapper>

@@ -25,6 +25,7 @@ public class MemberAction extends BaseAction {
 	
 	private int status = 0;
 	
+	
 	public Member getMember() {
 		return member;
 	}
@@ -47,6 +48,7 @@ public class MemberAction extends BaseAction {
 	public void setStatus(int status) {
 		this.status = status;
 	}
+
 
 	/* 
 	 * 会员查询
@@ -141,6 +143,66 @@ public class MemberAction extends BaseAction {
 	 */
 	public String show(){
 		return "show";
+	}
+	
+	/**
+	 * 修改密码
+	 * @return
+	 */
+	public String changePasswd(){
+		return "changePasswd";
+	}
+	
+	/**
+	 * 保存修改密码
+	 * @return
+	 */
+	public String savePasswd(){
+		Member memberVO = (Member)this.getSession().getAttribute("member");
+		
+		int changeType = TypeUtil.stringToInt(this.getRequest().getParameter("changeType"));
+		if(changeType==12){
+			String oldpasswd1 = this.getRequest().getParameter("oldpasswd1");
+			String oldpasswd3 = this.getRequest().getParameter("oldpasswd3");
+			
+			String newpasswd1 = this.getRequest().getParameter("newpasswd1");
+			String newpasswd2 = this.getRequest().getParameter("newpasswd2");
+			
+			if(memberVO.getPasswd1().equals(MD5Util.stringToMD5(oldpasswd1)) 
+					&& memberVO.getPasswd3().equals(MD5Util.stringToMD5(oldpasswd3))){
+				
+				if(newpasswd1!=null && newpasswd1.trim().length()>0){	//修改一级密码
+					memberVO.setPasswd1(MD5Util.stringToMD5(newpasswd1.trim()));
+					memberVO.setIdStr(" passwd1 = '"+memberVO.getPasswd1()+"' ");
+					memberService.editPasswdByIdStrCode(memberVO);
+				}
+				if(newpasswd2!=null && newpasswd2.trim().length()>0){	//修改二级密码
+					memberVO.setPasswd2(MD5Util.stringToMD5(newpasswd2.trim()));
+					
+					memberVO.setIdStr(" passwd2 = '"+memberVO.getPasswd2()+"' ");
+					memberService.editPasswdByIdStrCode(memberVO);
+				}
+				this.getRequest().setAttribute("edit", 1);
+			}else{
+				this.getRequest().setAttribute("errStr", "原一级密码或原三级密码错误");
+			}
+		}
+		if(changeType==3){
+			String oldpwd3 = this.getRequest().getParameter("oldpwd3");
+			String newpwd3 = this.getRequest().getParameter("newpwd3");
+			
+			if(memberVO.getPasswd3().equals(MD5Util.stringToMD5(oldpwd3)) ){
+				memberVO.setPasswd3(MD5Util.stringToMD5(newpwd3.trim()));
+				
+				memberVO.setIdStr(" passwd3 = '"+memberVO.getPasswd3()+"' ");
+				memberService.editPasswdByIdStrCode(memberVO);
+				this.getRequest().setAttribute("edit", 1);
+			}else{
+				this.getRequest().setAttribute("errStr", "原三级密码错误");
+			}
+			
+		}
+		return "changePasswd";
 	}
 	
 	/**

@@ -29,6 +29,7 @@
 				<param name="status">${status}</param>
 			</result>
 			<result name="show" type="dispatcher">/jsp/member/memberShow.jsp</result>
+			<result name="changePasswd" type="dispatcher">/jsp/member/memberPasswd.jsp</result>
 			<interceptor-ref name="common-params"/>
         </action>
     </package> 

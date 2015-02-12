@@ -80,4 +80,14 @@ public class MemberServiceImpl implements IMemberService {
 		// TODO Auto-generated method stub
 		return memberDAO.login(member);
 	}
+
+
+	/* (non-Javadoc)
+	 * @see com.g3g4.service.IMemberService#editPasswdByIdStrCode(com.g3g4.model.Member)
+	 */
+	@Override
+	public void editPasswdByIdStrCode(Member member) {
+		// TODO Auto-generated method stub
+		memberDAO.editPasswdByIdStrCode(member);
+	}
 }

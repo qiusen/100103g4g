@@ -70,4 +70,10 @@ public interface IMemberService {
 	 * @return
 	 */
 	public Member login(Member member);
+
+	/**
+	 * 修改密码
+	 * @param member
+	 */
+	public void editPasswdByIdStrCode(Member member);
 }
