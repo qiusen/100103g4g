@@ -76,4 +76,11 @@ public interface IMemberService {
 	 * @param member
 	 */
 	public void editPasswdByIdStrCode(Member member);
+
+	/**
+	 * 根据推荐人编号查询
+	 * @param member
+	 * @return
+	 */
+	public List<Member> selectMemberByRecoCode(Member member);
 }

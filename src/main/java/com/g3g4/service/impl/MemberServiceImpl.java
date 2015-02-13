@@ -90,4 +90,14 @@ public class MemberServiceImpl implements IMemberService {
 		// TODO Auto-generated method stub
 		memberDAO.editPasswdByIdStrCode(member);
 	}
+
+
+	/* (non-Javadoc)
+	 * @see com.g3g4.service.IMemberService#selectMemberByRecoCode(com.g3g4.model.Member)
+	 */
+	@Override
+	public List<Member> selectMemberByRecoCode(Member member) {
+		// TODO Auto-generated method stub
+		return memberDAO.selectMemberByRecoCode(member);
+	}
 }

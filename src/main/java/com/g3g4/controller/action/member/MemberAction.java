@@ -206,6 +206,28 @@ public class MemberAction extends BaseAction {
 	}
 	
 	/**
+	 * 销售业绩
+	 * @return
+	 */
+	public String sale(){
+		Member memberVO = (Member)this.getSession().getAttribute("member");
+		member.setRecoCode(memberVO.getCode());
+		member.setStatus(1);	//已审核的
+		List<Member> memberList = memberService.selectMemberByRecoCode(member);
+		this.getRequest().setAttribute("memberList", memberList);
+		return "sale";
+	}
+	
+	/**
+	 * 两区业绩
+	 * @return
+	 */
+	public String area(){
+		
+		return "area";
+	}
+	
+	/**
 	 * 修改 会员
 	 * @return
 	 */
