@@ -43,7 +43,7 @@
 					<!--登陆进去后进入：updatePass.html-->
 					<li><a href="${base }/op/memberAction!sale.${actionExt }" target="mainFrame">销售业绩</a></li>
 					<li><a href="${base }/op/memberAction!area.${actionExt }" target="mainFrame">两区业绩</a></li>
-					<li><a href="${base }/op/memberAction!changePasswd.${actionExt }" target="mainFrame">充值记录</a></li>
+					<li><a href="${base }/op/depositAction.${actionExt }" target="mainFrame">充值记录</a></li>
 				</ul></li>
 
 			<li><a href="${base }/login!logOff.${actionExt}">退出系统</a></li>

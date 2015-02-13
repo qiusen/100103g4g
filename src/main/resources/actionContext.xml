@@ -65,4 +65,12 @@
 				<ref bean="comboService" />
 			</property>
 	  </bean>
+	  
+	  <!-- 充值 action -->
+	  <bean id="depositAction" class="com.g3g4.controller.action.deposit.DepositAction" scope="prototype">
+			<property name="depositService">
+				<ref bean="depositService" />
+			</property>
+	  </bean>
+	  
 </beans>

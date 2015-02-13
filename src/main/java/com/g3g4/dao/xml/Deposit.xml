@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.g3g4.dao.IDepositDAO">
+	
+	<cache flushInterval="600000" eviction="LRU" type="org.mybatis.caches.oscache.OSCache"/>
+	
+	<sql id="depositLikeWhere">
+		<where>
+            <if test ="id != null and id > -1">
+				and `ID` = #{id}
+			</if>
+	        <if test ="code != null and code != ''">
+			    and `CODE` like '%${code}%'
+		    </if>
+	        <if test ="taxCoin != null and taxCoin != ''">
+			    and `TAX_COIN` like '%${taxCoin}%'
+		    </if>
+	        <if test ="des != null and des != ''">
+			    and `DES` like '%${des}%'
+		    </if>
+	        <if test ="dealor != null and dealor != ''">
+			    and `DEALOR` like '%${dealor}%'
+		    </if>
+		</where>
+	</sql>
+	
+	<sql id="depositPage">
+		<if test="null != start">
+		  limit #{start},#{pageSize}
+		</if>
+	</sql>
+	
+	<sql id="depositField">
+		`ID`, `CODE`, `TAX_COIN`, `DES`, `DEALOR`, `DEALTIME`
+	</sql>
+	
+	<resultMap id="depositMap" type="deposit">
+	    	<result property="id" column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="code" column="CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="taxCoin" column="TAX_COIN" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="des" column="DES" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="dealor" column="DEALOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="dealtime" column="DEALTIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+	<insert id="addSaveDeposit" parameterType="deposit">
+		insert into `deposit` (
+           `CODE`, 
+           `TAX_COIN`, 
+           `DES`, 
+           `DEALOR`, 
+           `DEALTIME`
+		) values 
+		(
+            #{code}, 
+            #{taxCoin}, 
+            #{des}, 
+            #{dealor}, 
+            #{dealtime}
+		)
+		<selectKey keyProperty="id"  resultType="java.lang.Integer">
+			select last_insert_id() as id from `deposit` limit 1
+		</selectKey>
+	</insert>
+	
+	<delete id="deleteByIds" parameterType="String">
+		delete from `deposit` ${_parameter}
+	</delete>
+	
+	<update id="editSaveDeposit" parameterType="deposit">
+		update `deposit` set 
+              `CODE` = #{code}, 
+              `TAX_COIN` = #{taxCoin}, 
+              `DES` = #{des}, 
+              `DEALOR` = #{dealor}, 
+              `DEALTIME` = #{dealtime}
+        	where ID = #{id}
+	</update>
+	
+	<select id="selectDepositById" parameterType="deposit" resultMap="depositMap"  >
+		SELECT * FROM `deposit` where ID = #{id}
+	</select>
+	
+	<select id="getDepositCount" parameterType="deposit" resultType="Long" >
+		select count(*) from `deposit`
+		<include refid="depositLikeWhere" />
+	</select>
+	
+	<select id="selectAll" parameterType="deposit" resultMap="depositMap" >
+		select * from `deposit`
+	</select>
+	
+	<select id="selectDepositLike" parameterType="deposit" resultMap="depositMap" >
+		SELECT <include refid="depositField" /> FROM `deposit`
+	        <include refid="depositLikeWhere" />
+			order by ID desc
+	        <include refid="depositPage" /> 
+	</select>
+</mapper>

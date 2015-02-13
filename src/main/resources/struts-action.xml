@@ -54,7 +54,7 @@
 			<result name="add" type="dispatcher">/jsp/comment/commentAdd.jsp</result>
 			<result name="addSave" type="redirectAction">
 				<param name="actionName">commentAction</param>
-				<param name="namespace">/op/comment</param>
+				<param name="namespace">/op</param>
 			</result>
 
 			<interceptor-ref name="common-params"/>
@@ -104,5 +104,14 @@
         </action>
     </package> 
     <!-- 套餐Action End -->
+    
+    <!-- 充值Action Begin -->
+    <package name="struts-admin-deposit" namespace="/op" extends="struts-interceptor">
+		<action name="depositAction" class="depositAction">
+			<result name="success" type="dispatcher">/jsp/deposit/depositList.jsp</result>
+			<interceptor-ref name="common-params"/>
+        </action>
+    </package> 
+    <!-- 充值Action End -->
     
 </struts>

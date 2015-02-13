@@ -16,11 +16,9 @@
 									<table class="table_1">
 										<tbody>
 											<tr>
-												<td><a
-													href="http://www.100103g4gvip.com/L877DF_9Ij5AS2G_4Eh2FB_sc_AKNEYB_0UzWfb_9iH7b1_P77BQM0FB_6B_o0wD3d_64hfoU_3E82Hf84_Kzr253_0UF98BAUP8A_op0e/user_list_gslylist.aspx"
-													target="mainFrame"><img alt="收件箱"
+												<td><img alt="收件箱"
 														src="${base }/images/ml2.gif" width="80px" height="30px"><b><font
-															size="4pt">收件箱</font></b></a></td>
+															size="4pt">收件箱</font></b></td>
 											</tr>
 										</tbody>
 									</table>
@@ -50,7 +48,7 @@
 										</ul>
 									</div> <br> <a
 									href="${base }/login!logOff.${actionExt}"
-									target="mainFrame"><img src="${base }/images/aqtc.jpg"></a>
+									><img src="${base }/images/aqtc.jpg"></a>
 								</td>
 							</tr>
 							<!--
