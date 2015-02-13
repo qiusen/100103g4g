@@ -14,7 +14,7 @@
 			<li><a href="#">产品中心</a>
 				<ul>
 					<li><a href="${base }/common/buyExplainAction.${actionExt }" target="mainFrame">购买说明</a></li>
-					<li><a href="userlogin.html" target="_self">订购中心</a></li>
+					<li><a href="${base }/op/onlineOrderAction.${actionExt }" target="mainFrame">订购中心</a></li>
 					<!--登陆进去后进入：usermanage.html-->
 				</ul></li>
 			<li><a href="#">会员管理</a>

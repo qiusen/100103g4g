@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.g3g4.dao.IOnlineOrderDAO">
+	
+	<cache flushInterval="600000" eviction="LRU" type="org.mybatis.caches.oscache.OSCache"/>
+	
+	<sql id="onlineOrderLikeWhere">
+		<where>
+            <if test ="id != null and id > -1">
+				and `ID` = #{id}
+			</if>
+	        <if test ="code != null and code != ''">
+			    and `CODE` like '%${code}%'
+		    </if>
+	        <if test ="name != null and name != ''">
+			    and `NAME` like '%${name}%'
+		    </if>
+	        <if test ="mobile != null and mobile != ''">
+			    and `MOBILE` like '%${mobile}%'
+		    </if>
+	        <if test ="addr != null and addr != ''">
+			    and `ADDR` like '%${addr}%'
+		    </if>
+	        <if test ="mobileModel != null and mobileModel != ''">
+			    and `MOBILE_MODEL` like '%${mobileModel}%'
+		    </if>
+	        <if test ="mobileColor != null and mobileColor != ''">
+			    and `MOBILE_COLOR` like '%${mobileColor}%'
+		    </if>
+	        <if test ="mobileNumber1 != null and mobileNumber1 != ''">
+			    and `MOBILE_NUMBER1` like '%${mobileNumber1}%'
+		    </if>
+	        <if test ="mobileNumber2 != null and mobileNumber2 != ''">
+			    and `MOBILE_NUMBER2` like '%${mobileNumber2}%'
+		    </if>
+	        <if test ="mobileNumber3 != null and mobileNumber3 != ''">
+			    and `MOBILE_NUMBER3` like '%${mobileNumber3}%'
+		    </if>
+	        <if test ="mobileNumber4 != null and mobileNumber4 != ''">
+			    and `MOBILE_NUMBER4` like '%${mobileNumber4}%'
+		    </if>
+	        <if test ="mobileNumber5 != null and mobileNumber5 != ''">
+			    and `MOBILE_NUMBER5` like '%${mobileNumber5}%'
+		    </if>
+	        <if test ="mobileNumber6 != null and mobileNumber6 != ''">
+			    and `MOBILE_NUMBER6` like '%${mobileNumber6}%'
+		    </if>
+	        <if test ="pc != null and pc != ''">
+			    and `PC` like '%${pc}%'
+		    </if>
+	        <if test ="remark != null and remark != ''">
+			    and `REMARK` like '%${remark}%'
+		    </if>
+            <if test ="status != null and status > -1">
+				and `STATUS` = #{status}
+			</if>
+	        <if test ="dealor != null and dealor != ''">
+			    and `DEALOR` like '%${dealor}%'
+		    </if>
+		</where>
+	</sql>
+	
+	<sql id="onlineOrderPage">
+		<if test="null != start">
+		  limit #{start},#{pageSize}
+		</if>
+	</sql>
+	
+	<sql id="onlineOrderField">
+		`ID`, `CODE`, `NAME`, `MOBILE`, `ADDR`, `MOBILE_MODEL`, `MOBILE_COLOR`, `MOBILE_NUMBER1`, `MOBILE_NUMBER2`, `MOBILE_NUMBER3`, `MOBILE_NUMBER4`, `MOBILE_NUMBER5`, `MOBILE_NUMBER6`, `PC`, `REMARK`, `STATUS`, `CREATETIME`, `DEALOR`, `DEALTIME`
+	</sql>
+	
+	<resultMap id="onlineOrderMap" type="onlineOrder">
+	    	<result property="id" column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="code" column="CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="name" column="NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="mobile" column="MOBILE" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="addr" column="ADDR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="mobileModel" column="MOBILE_MODEL" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="mobileColor" column="MOBILE_COLOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="mobileNumber1" column="MOBILE_NUMBER1" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="mobileNumber2" column="MOBILE_NUMBER2" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="mobileNumber3" column="MOBILE_NUMBER3" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="mobileNumber4" column="MOBILE_NUMBER4" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="mobileNumber5" column="MOBILE_NUMBER5" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="mobileNumber6" column="MOBILE_NUMBER6" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="pc" column="PC" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="remark" column="REMARK" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="status" column="STATUS" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="createtime" column="CREATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	    	<result property="dealor" column="DEALOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="dealtime" column="DEALTIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+	<insert id="addSaveOnlineOrder" parameterType="onlineOrder">
+		insert into `online_order` (
+           `CODE`, 
+           `NAME`, 
+           `MOBILE`, 
+           `ADDR`, 
+           `MOBILE_MODEL`, 
+           `MOBILE_COLOR`, 
+           `MOBILE_NUMBER1`, 
+           `MOBILE_NUMBER2`, 
+           `MOBILE_NUMBER3`, 
+           `MOBILE_NUMBER4`, 
+           `MOBILE_NUMBER5`, 
+           `MOBILE_NUMBER6`, 
+           `PC`, 
+           `REMARK`, 
+           `STATUS`, 
+           `CREATETIME`, 
+           `DEALOR`, 
+           `DEALTIME`
+		) values 
+		(
+            #{code}, 
+            #{name}, 
+            #{mobile}, 
+            #{addr}, 
+            #{mobileModel}, 
+            #{mobileColor}, 
+            #{mobileNumber1}, 
+            #{mobileNumber2}, 
+            #{mobileNumber3}, 
+            #{mobileNumber4}, 
+            #{mobileNumber5}, 
+            #{mobileNumber6}, 
+            #{pc}, 
+            #{remark}, 
+            #{status}, 
+            #{createtime}, 
+            #{dealor}, 
+            #{dealtime}
+		)
+		<selectKey keyProperty="id"  resultType="java.lang.Integer">
+			select last_insert_id() as id from `online_order` limit 1
+		</selectKey>
+	</insert>
+	
+	<delete id="deleteByIds" parameterType="String">
+		delete from `online_order` ${_parameter}
+	</delete>
+	
+	<update id="editSaveOnlineOrder" parameterType="onlineOrder">
+		update `online_order` set 
+              `CODE` = #{code}, 
+              `NAME` = #{name}, 
+              `MOBILE` = #{mobile}, 
+              `ADDR` = #{addr}, 
+              `MOBILE_MODEL` = #{mobileModel}, 
+              `MOBILE_COLOR` = #{mobileColor}, 
+              `MOBILE_NUMBER1` = #{mobileNumber1}, 
+              `MOBILE_NUMBER2` = #{mobileNumber2}, 
+              `MOBILE_NUMBER3` = #{mobileNumber3}, 
+              `MOBILE_NUMBER4` = #{mobileNumber4}, 
+              `MOBILE_NUMBER5` = #{mobileNumber5}, 
+              `MOBILE_NUMBER6` = #{mobileNumber6}, 
+              `PC` = #{pc}, 
+              `REMARK` = #{remark}, 
+              `STATUS` = #{status}, 
+              `CREATETIME` = #{createtime}, 
+              `DEALOR` = #{dealor}, 
+              `DEALTIME` = #{dealtime}
+        	where ID = #{id}
+	</update>
+	
+	<select id="selectOnlineOrderById" parameterType="onlineOrder" resultMap="onlineOrderMap"  >
+		SELECT * FROM `online_order` where ID = #{id}
+	</select>
+	
+	<select id="getOnlineOrderCount" parameterType="onlineOrder" resultType="Long" >
+		select count(*) from `online_order`
+		<include refid="onlineOrderLikeWhere" />
+	</select>
+	
+	<select id="selectAll" parameterType="onlineOrder" resultMap="onlineOrderMap" >
+		select * from `online_order`
+	</select>
+	
+	<select id="selectOnlineOrderLike" parameterType="onlineOrder" resultMap="onlineOrderMap" >
+		SELECT <include refid="onlineOrderField" /> FROM `online_order`
+	        <include refid="onlineOrderLikeWhere" />
+			order by ID desc
+	        <include refid="onlineOrderPage" /> 
+	</select>
+</mapper>

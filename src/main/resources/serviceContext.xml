@@ -16,4 +16,13 @@
 	  <!-- 滚动公告 service -->	
 	  <bean id="scrollNoticeService" class="com.g3g4.service.impl.ScrollNoticeServiceImpl"/>
 	  
+	  <!-- 在线订单 service -->	
+	  <bean id="onlineOrderService" class="com.g3g4.service.impl.OnlineOrderServiceImpl"/>
+	  
+	  <!-- 产品 service -->	
+	  <bean id="productService" class="com.g3g4.service.impl.ProductServiceImpl"/>
+	  
+	  <!-- 套餐 service -->	
+	  <bean id="comboService" class="com.g3g4.service.impl.ComboServiceImpl"/>
+	  
 </beans>

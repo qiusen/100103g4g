@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.g3g4.dao.IProductDAO">
+	
+	<cache flushInterval="600000" eviction="LRU" type="org.mybatis.caches.oscache.OSCache"/>
+	
+	<sql id="productLikeWhere">
+		<where>
+            <if test ="id != null and id > -1">
+				and `ID` = #{id}
+			</if>
+	        <if test ="name != null and name != ''">
+			    and `NAME` like '%${name}%'
+		    </if>
+	        <if test ="shortName != null and shortName != ''">
+			    and `SHORT_NAME` like '%${shortName}%'
+		    </if>
+	        <if test ="content != null and content != ''">
+			    and `CONTENT` like '%${content}%'
+		    </if>
+	        <if test ="creator != null and creator != ''">
+			    and `CREATOR` like '%${creator}%'
+		    </if>
+	        <if test ="updator != null and updator != ''">
+			    and `UPDATOR` like '%${updator}%'
+		    </if>
+		</where>
+	</sql>
+	
+	<sql id="productPage">
+		<if test="null != start">
+		  limit #{start},#{pageSize}
+		</if>
+	</sql>
+	
+	<sql id="productField">
+		`ID`, `NAME`, `SHORT_NAME`, `CONTENT`, `CREATOR`, `CREATETIME`, `UPDATOR`, `UPDATETIME`
+	</sql>
+	
+	<resultMap id="productMap" type="product">
+	    	<result property="id" column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="name" column="NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="shortName" column="SHORT_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="content" column="CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="creator" column="CREATOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="createtime" column="CREATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	    	<result property="updator" column="UPDATOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="updatetime" column="UPDATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+	<insert id="addSaveProduct" parameterType="product">
+		insert into `product` (
+           `NAME`, 
+           `SHORT_NAME`, 
+           `CONTENT`, 
+           `CREATOR`, 
+           `CREATETIME`, 
+           `UPDATOR`, 
+           `UPDATETIME`
+		) values 
+		(
+            #{name}, 
+            #{shortName}, 
+            #{content}, 
+            #{creator}, 
+            #{createtime}, 
+            #{updator}, 
+            #{updatetime}
+		)
+		<selectKey keyProperty="id"  resultType="java.lang.Integer">
+			select last_insert_id() as id from `product` limit 1
+		</selectKey>
+	</insert>
+	
+	<delete id="deleteByIds" parameterType="String">
+		delete from `product` ${_parameter}
+	</delete>
+	
+	<update id="editSaveProduct" parameterType="product">
+		update `product` set 
+              `NAME` = #{name}, 
+              `SHORT_NAME` = #{shortName}, 
+              `CONTENT` = #{content}, 
+              `CREATOR` = #{creator}, 
+              `CREATETIME` = #{createtime}, 
+              `UPDATOR` = #{updator}, 
+              `UPDATETIME` = #{updatetime}
+        	where ID = #{id}
+	</update>
+	
+	<select id="selectProductById" parameterType="product" resultMap="productMap"  >
+		SELECT * FROM `product` where ID = #{id}
+	</select>
+	
+	<select id="getProductCount" parameterType="product" resultType="Long" >
+		select count(*) from `product`
+		<include refid="productLikeWhere" />
+	</select>
+	
+	<select id="selectAll" parameterType="product" resultMap="productMap" >
+		select * from `product`
+	</select>
+	
+	<select id="selectProductLike" parameterType="product" resultMap="productMap" >
+		SELECT <include refid="productField" /> FROM `product`
+	        <include refid="productLikeWhere" />
+			order by ID desc
+	        <include refid="productPage" /> 
+	</select>
+</mapper>

@@ -45,4 +45,24 @@
 			</property>
 	  </bean>
 	  
+	  <!-- 在线订单 action -->
+	  <bean id="onlineOrderAction" class="com.g3g4.controller.action.onlineOrder.OnlineOrderAction" scope="prototype">
+			<property name="onlineOrderService">
+				<ref bean="onlineOrderService" />
+			</property>
+	  </bean>
+	  
+	  <!-- 产品 action -->
+	  <bean id="productAction" class="com.g3g4.controller.action.product.ProductAction" scope="prototype">
+			<property name="productService">
+				<ref bean="productService" />
+			</property>
+	  </bean>
+	  
+	  <!-- 套餐 action -->
+	  <bean id="comboAction" class="com.g3g4.controller.action.combo.ComboAction" scope="prototype">
+			<property name="comboService">
+				<ref bean="comboService" />
+			</property>
+	  </bean>
 </beans>

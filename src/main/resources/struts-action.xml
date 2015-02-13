@@ -72,4 +72,37 @@
     </package> 
     <!-- 购买说明Action End -->
     
+    <!-- 在线订单Action Begin -->
+    <package name="struts-admin-onlineOrder" namespace="/op" extends="struts-interceptor">
+		<action name="onlineOrderAction" class="onlineOrderAction">
+			<result name="success" type="dispatcher">/jsp/onlineOrder/onlineOrderAdd.jsp</result>
+			<result name="addSave" type="redirectAction">
+				<param name="actionName">onlineOrderAction</param>
+				<param name="namespace">/op</param>
+				<param name="add">${add}</param>
+			</result>
+			<interceptor-ref name="common-params"/>
+        </action>
+    </package> 
+    <!-- 在线订单Action End -->
+    
+    <!-- 产品Action Begin -->
+    <package name="struts-admin-product" namespace="/op" extends="struts-interceptor">
+		<action name="productAction" class="productAction">
+			<result name="view" type="dispatcher">/jsp/product/productView.jsp</result>
+			
+			<interceptor-ref name="common-params"/>
+        </action>
+    </package> 
+    <!-- 产品Action End -->
+    
+    <!-- 套餐Action Begin -->
+    <package name="struts-admin-combo" namespace="/op" extends="struts-interceptor">
+		<action name="comboAction" class="comboAction">
+			<result name="view" type="dispatcher">/jsp/combo/comboView.jsp</result>
+			<interceptor-ref name="common-params"/>
+        </action>
+    </package> 
+    <!-- 套餐Action End -->
+    
 </struts>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.g3g4.dao.IComboDAO">
+	
+	<cache flushInterval="600000" eviction="LRU" type="org.mybatis.caches.oscache.OSCache"/>
+	
+	<sql id="comboLikeWhere">
+		<where>
+            <if test ="id != null and id > -1">
+				and `ID` = #{id}
+			</if>
+	        <if test ="name != null and name != ''">
+			    and `NAME` like '%${name}%'
+		    </if>
+	        <if test ="shortName != null and shortName != ''">
+			    and `SHORT_NAME` like '%${shortName}%'
+		    </if>
+	        <if test ="content != null and content != ''">
+			    and `CONTENT` like '%${content}%'
+		    </if>
+	        <if test ="creator != null and creator != ''">
+			    and `CREATOR` like '%${creator}%'
+		    </if>
+	        <if test ="updator != null and updator != ''">
+			    and `UPDATOR` like '%${updator}%'
+		    </if>
+		</where>
+	</sql>
+	
+	<sql id="comboPage">
+		<if test="null != start">
+		  limit #{start},#{pageSize}
+		</if>
+	</sql>
+	
+	<sql id="comboField">
+		`ID`, `NAME`, `SHORT_NAME`, `CONTENT`, `CREATOR`, `CREATETIME`, `UPDATOR`, `UPDATETIME`
+	</sql>
+	
+	<resultMap id="comboMap" type="combo">
+	    	<result property="id" column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="name" column="NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="shortName" column="SHORT_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="content" column="CONTENT" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="creator" column="CREATOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="createtime" column="CREATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	    	<result property="updator" column="UPDATOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="updatetime" column="UPDATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+	<insert id="addSaveCombo" parameterType="combo">
+		insert into `combo` (
+           `NAME`, 
+           `SHORT_NAME`, 
+           `CONTENT`, 
+           `CREATOR`, 
+           `CREATETIME`, 
+           `UPDATOR`, 
+           `UPDATETIME`
+		) values 
+		(
+            #{name}, 
+            #{shortName}, 
+            #{content}, 
+            #{creator}, 
+            #{createtime}, 
+            #{updator}, 
+            #{updatetime}
+		)
+		<selectKey keyProperty="id"  resultType="java.lang.Integer">
+			select last_insert_id() as id from `combo` limit 1
+		</selectKey>
+	</insert>
+	
+	<delete id="deleteByIds" parameterType="String">
+		delete from `combo` ${_parameter}
+	</delete>
+	
+	<update id="editSaveCombo" parameterType="combo">
+		update `combo` set 
+              `NAME` = #{name}, 
+              `SHORT_NAME` = #{shortName}, 
+              `CONTENT` = #{content}, 
+              `CREATOR` = #{creator}, 
+              `CREATETIME` = #{createtime}, 
+              `UPDATOR` = #{updator}, 
+              `UPDATETIME` = #{updatetime}
+        	where ID = #{id}
+	</update>
+	
+	<select id="selectComboById" parameterType="combo" resultMap="comboMap"  >
+		SELECT * FROM `combo` where ID = #{id}
+	</select>
+	
+	<select id="getComboCount" parameterType="combo" resultType="Long" >
+		select count(*) from `combo`
+		<include refid="comboLikeWhere" />
+	</select>
+	
+	<select id="selectAll" parameterType="combo" resultMap="comboMap" >
+		select * from `combo`
+	</select>
+	
+	<select id="selectComboLike" parameterType="combo" resultMap="comboMap" >
+		SELECT <include refid="comboField" /> FROM `combo`
+	        <include refid="comboLikeWhere" />
+			order by ID desc
+	        <include refid="comboPage" /> 
+	</select>
+</mapper>
