@@ -10,7 +10,7 @@
 				and `ID` = #{id}
 			</if>
 	        <if test ="code != null and code != ''">
-			    and `CODE` like '%${code}%'
+			    and `CODE` = '${code}'
 		    </if>
 	        <if test ="taxCoin != null and taxCoin != ''">
 			    and `TAX_COIN` like '%${taxCoin}%'

@@ -114,4 +114,13 @@
     </package> 
     <!-- 充值Action End -->
     
+    <!-- 奖金Action Begin -->
+    <package name="struts-admin-bonus" namespace="/op" extends="struts-interceptor">
+		<action name="bonusAction" class="bonusAction">
+			<result name="success" type="dispatcher">/jsp/bonus/bonusList.jsp</result>
+			<interceptor-ref name="common-params"/>
+        </action>
+    </package> 
+    <!-- 奖金Action End -->
+    
 </struts>

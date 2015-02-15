@@ -73,4 +73,11 @@
 			</property>
 	  </bean>
 	  
+	  <!-- 奖金 action -->
+	  <bean id="bonusAction" class="com.g3g4.controller.action.bonus.BonusAction" scope="prototype">
+			<property name="bonusService">
+				<ref bean="bonusService" />
+			</property>
+	  </bean>
+	  
 </beans>

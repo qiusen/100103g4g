@@ -28,4 +28,7 @@
 	  <!-- 充值 service -->	
 	  <bean id="depositService" class="com.g3g4.service.impl.DepositServiceImpl"/>
 	  
+	  <!-- 奖金 service -->	
+	  <bean id="bonusService" class="com.g3g4.service.impl.BonusServiceImpl"/>
+	  
 </beans>

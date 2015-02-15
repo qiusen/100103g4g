@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.g3g4.dao.IBonusDAO">
+	
+	<cache flushInterval="600000" eviction="LRU" type="org.mybatis.caches.oscache.OSCache"/>
+	
+	<sql id="bonusLikeWhere">
+		<where>
+            <if test ="id != null and id > -1">
+				and `ID` = #{id}
+			</if>
+	        <if test ="code != null and code != ''">
+			    and `CODE` = '${code}'
+		    </if>
+            <if test ="cycle != null and cycle > -1">
+				and `CYCLE` = #{cycle}
+			</if>
+	        <if test ="dealor != null and dealor != ''">
+			    and `DEALOR` like '%${dealor}%'
+		    </if>
+		</where>
+	</sql>
+	
+	<sql id="bonusPage">
+		<if test="null != start">
+		  limit #{start},#{pageSize}
+		</if>
+	</sql>
+	
+	<sql id="bonusField">
+		`ID`, `CODE`, `CYCLE`, `SERV_SUBSIDY`, `MEDIA_PUB`, `EDU_TRAIN`, `AD_SERV`, `ORGA_LEAD`, `ALLOWANCE`, `MAINTAIN`, `HELP_EACH`, `LOVE_HEART`, `TAX`, `REAL_GIVE`, `DEALOR`, `DEALTIME`
+	</sql>
+	
+	<resultMap id="bonusMap" type="bonus">
+	    	<result property="id" column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="code" column="CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="cycle" column="CYCLE" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="servSubsidy" column="SERV_SUBSIDY" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="mediaPub" column="MEDIA_PUB" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="eduTrain" column="EDU_TRAIN" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="adServ" column="AD_SERV" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="orgaLead" column="ORGA_LEAD" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="allowance" column="ALLOWANCE" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="maintain" column="MAINTAIN" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="helpEach" column="HELP_EACH" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="loveHeart" column="LOVE_HEART" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="tax" column="TAX" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="realGive" column="REAL_GIVE" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="dealor" column="DEALOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="dealtime" column="DEALTIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+	<insert id="addSaveBonus" parameterType="bonus">
+		insert into `bonus` (
+           `CODE`, 
+           `CYCLE`, 
+           `SERV_SUBSIDY`, 
+           `MEDIA_PUB`, 
+           `EDU_TRAIN`, 
+           `AD_SERV`, 
+           `ORGA_LEAD`, 
+           `ALLOWANCE`, 
+           `MAINTAIN`, 
+           `HELP_EACH`, 
+           `LOVE_HEART`, 
+           `TAX`, 
+           `REAL_GIVE`, 
+           `DEALOR`, 
+           `DEALTIME`
+		) values 
+		(
+            #{code}, 
+            #{cycle}, 
+            #{servSubsidy}, 
+            #{mediaPub}, 
+            #{eduTrain}, 
+            #{adServ}, 
+            #{orgaLead}, 
+            #{allowance}, 
+            #{maintain}, 
+            #{helpEach}, 
+            #{loveHeart}, 
+            #{tax}, 
+            #{realGive}, 
+            #{dealor}, 
+            #{dealtime}
+		)
+		<selectKey keyProperty="id"  resultType="java.lang.Integer">
+			select last_insert_id() as id from `bonus` limit 1
+		</selectKey>
+	</insert>
+	
+	<delete id="deleteByIds" parameterType="String">
+		delete from `bonus` ${_parameter}
+	</delete>
+	
+	<update id="editSaveBonus" parameterType="bonus">
+		update `bonus` set 
+              `CODE` = #{code}, 
+              `CYCLE` = #{cycle}, 
+              `SERV_SUBSIDY` = #{servSubsidy}, 
+              `MEDIA_PUB` = #{mediaPub}, 
+              `EDU_TRAIN` = #{eduTrain}, 
+              `AD_SERV` = #{adServ}, 
+              `ORGA_LEAD` = #{orgaLead}, 
+              `ALLOWANCE` = #{allowance}, 
+              `MAINTAIN` = #{maintain}, 
+              `HELP_EACH` = #{helpEach}, 
+              `LOVE_HEART` = #{loveHeart}, 
+              `TAX` = #{tax}, 
+              `REAL_GIVE` = #{realGive}, 
+              `DEALOR` = #{dealor}, 
+              `DEALTIME` = #{dealtime}
+        	where ID = #{id}
+	</update>
+	
+	<select id="selectBonusById" parameterType="bonus" resultMap="bonusMap"  >
+		SELECT * FROM `bonus` where ID = #{id}
+	</select>
+	
+	<select id="getBonusCount" parameterType="bonus" resultType="Long" >
+		select count(*) from `bonus`
+		<include refid="bonusLikeWhere" />
+	</select>
+	
+	<select id="selectAll" parameterType="bonus" resultMap="bonusMap" >
+		select * from `bonus`
+	</select>
+	
+	<select id="selectBonusLike" parameterType="bonus" resultMap="bonusMap" >
+		SELECT <include refid="bonusField" /> FROM `bonus`
+	        <include refid="bonusLikeWhere" />
+			order by ID desc
+	        <include refid="bonusPage" /> 
+	</select>
+</mapper>

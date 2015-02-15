@@ -14,7 +14,7 @@
 <script type="text/javascript">
 function goPage(v){
 	document.getElementById("pageNo").value=v;
-	document.getElementById("memberForm").submit();
+	document.getElementById("depositForm").submit();
 }
 </script>
 </head>
@@ -47,7 +47,7 @@ function goPage(v){
 		<tr>
 		
 		<td colspan="2" align="center">
-		<form action="memberAction.${actionExt }" id="memberForm" name="memberForm" method="post">
+		<form action="depositAction.${actionExt }" id="depositForm" name="depositForm" method="post">
          <input type="hidden" name="pageNo" id="pageNo" value="${requestScope.pageInfo.page}" />
 		 <input type="hidden" name="pageSize" id="pageSize" value="${requestScope.pageInfo.pageSize}" />
                     <table class="table" cellspacing="0" cellpadding="3" border="0" id="GridView1" style="border-color:RoyalBlue;width:100%;border-collapse:collapse;">
@@ -79,6 +79,7 @@ function goPage(v){
                         <%@ include file="/jsp/common/page.jsp"%>
                         </tbody>
                     </table>
+                   </form>
                 </td>
 		</tr>
 	</tbody>
