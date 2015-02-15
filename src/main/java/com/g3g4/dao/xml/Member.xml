@@ -273,4 +273,10 @@
 		SELECT <include refid="memberField" /> FROM `member`
 	        where `RECO_CODE` = #{recoCode} and `STATUS` = #{status}
 	</select>
+	
+	<update id="editCoin" parameterType="member">
+		update `member` set 
+              ${idStr}
+        	where `CODE` = #{code}
+	</update>
 </mapper>

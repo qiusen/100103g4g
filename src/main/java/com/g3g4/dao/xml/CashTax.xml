@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.g3g4.dao.ICashTaxDAO">
+	
+	<cache flushInterval="600000" eviction="LRU" type="org.mybatis.caches.oscache.OSCache"/>
+	
+	<sql id="cashTaxLikeWhere">
+		<where>
+            <if test ="id != null and id > -1">
+				and `ID` = #{id}
+			</if>
+	        <if test ="code != null and code != ''">
+			    and `CODE` like '%${code}%'
+		    </if>
+            <if test ="coin != null and coin > -1">
+				and `COIN` = #{coin}
+			</if>
+		</where>
+	</sql>
+	
+	<sql id="cashTaxPage">
+		<if test="null != start">
+		  limit #{start},#{pageSize}
+		</if>
+	</sql>
+	
+	<sql id="cashTaxField">
+		`ID`, `CODE`, `COIN`, `DEALTIME`
+	</sql>
+	
+	<resultMap id="cashTaxMap" type="cashTax">
+	    	<result property="id" column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="code" column="CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="coin" column="COIN" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="dealtime" column="DEALTIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+	<insert id="addSaveCashTax" parameterType="cashTax">
+		insert into `cash_tax` (
+           `CODE`, 
+           `COIN`, 
+           `DEALTIME`
+		) values 
+		(
+            #{code}, 
+            #{coin}, 
+            #{dealtime}
+		)
+		<selectKey keyProperty="id"  resultType="java.lang.Integer">
+			select last_insert_id() as id from `cash_tax` limit 1
+		</selectKey>
+	</insert>
+	
+	<delete id="deleteByIds" parameterType="String">
+		delete from `cash_tax` ${_parameter}
+	</delete>
+	
+	<update id="editSaveCashTax" parameterType="cashTax">
+		update `cash_tax` set 
+              `CODE` = #{code}, 
+              `COIN` = #{coin}, 
+              `DEALTIME` = #{dealtime}
+        	where ID = #{id}
+	</update>
+	
+	<select id="selectCashTaxById" parameterType="cashTax" resultMap="cashTaxMap"  >
+		SELECT * FROM `cash_tax` where ID = #{id}
+	</select>
+	
+	<select id="getCashTaxCount" parameterType="cashTax" resultType="Long" >
+		select count(*) from `cash_tax`
+		<include refid="cashTaxLikeWhere" />
+	</select>
+	
+	<select id="selectAll" parameterType="cashTax" resultMap="cashTaxMap" >
+		select * from `cash_tax`
+	</select>
+	
+	<select id="selectCashTaxLike" parameterType="cashTax" resultMap="cashTaxMap" >
+		SELECT <include refid="cashTaxField" /> FROM `cash_tax`
+	        <include refid="cashTaxLikeWhere" />
+			order by ID desc
+	        <include refid="cashTaxPage" /> 
+	</select>
+</mapper>

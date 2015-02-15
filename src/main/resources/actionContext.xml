@@ -80,4 +80,11 @@
 			</property>
 	  </bean>
 	  
+	  <!-- 现金币转报单币 action -->
+	  <bean id="cashTaxAction" class="com.g3g4.controller.action.cashTax.CashTaxAction" scope="prototype">
+			<property name="cashTaxService">
+				<ref bean="cashTaxService" />
+			</property>
+	  </bean>
+	  
 </beans>

@@ -89,4 +89,10 @@ public interface IMemberDAO {
 	 * @return
 	 */
 	public List<Member> selectMemberByRecoCode(Member member);
+
+	/**
+	 * 修改币
+	 * @param member
+	 */
+	public void editCoin(Member member);
 }

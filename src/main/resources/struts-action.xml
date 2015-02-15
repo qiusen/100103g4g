@@ -123,4 +123,19 @@
     </package> 
     <!-- 奖金Action End -->
     
+    <!-- 现金币转报单币Action Begin -->
+    <package name="struts-admin-cashTax" namespace="/op" extends="struts-interceptor">
+		<action name="cashTaxAction" class="cashTaxAction">
+			<result name="success" type="dispatcher">/jsp/cashTax/cashTaxList.jsp</result>
+			<result name="addSave" type="redirectAction">
+				<param name="actionName">cashTaxAction</param>
+				<param name="namespace">/op</param>
+				<param name="errCode">${errCode}</param>
+			</result>
+			
+			<interceptor-ref name="common-params"/>
+        </action>
+    </package> 
+    <!-- 现金币转报单币Action End -->
+    
 </struts>

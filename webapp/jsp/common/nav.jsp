@@ -31,7 +31,7 @@
 					<li><a href="userlogin.html" target="_self">电商币名细</a></li>
 					<li><a href="userlogin.html" target="_self">申请提现</a></li>
 					<li><a href="userlogin.html" target="_self">转报单币</a></li>
-					<li><a href="userlogin.html" target="_self">现金币转报单币</a></li>
+					<li><a href="${base }/op/cashTaxAction.${actionExt }" target="mainFrame">现金币转报单币</a></li>
 					<!--登陆进去后进入：usermanage.html-->
 				</ul></li>
 

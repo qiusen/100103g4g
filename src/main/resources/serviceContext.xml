@@ -31,4 +31,7 @@
 	  <!-- 奖金 service -->	
 	  <bean id="bonusService" class="com.g3g4.service.impl.BonusServiceImpl"/>
 	  
+	  <!-- 现金币转报单币 service -->	
+	  <bean id="cashTaxService" class="com.g3g4.service.impl.CashTaxServiceImpl"/>
+	  
 </beans>
