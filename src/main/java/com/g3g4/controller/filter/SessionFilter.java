@@ -58,8 +58,8 @@ public class SessionFilter implements Filter {
 					if(passwd2!=null && passwd2.trim().length()>0){
 						chain.doFilter(request, response);
 					}else{
-						chain.doFilter(request, response);
-						//httpResponse.sendRedirect(Property.BASE + "/jsp/common/passwd2.jsp");
+						//chain.doFilter(request, response);
+						httpResponse.sendRedirect(Property.BASE + "/jsp/passwd2.jsp?forwardUrl="+httpRequest.getRequestURL().toString());
 					}
 				}else{
 					httpResponse.sendRedirect(Property.BASE + "/jsp/common/noRights.jsp");

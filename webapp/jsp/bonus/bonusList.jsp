@@ -24,7 +24,7 @@ function goPage(v){
 		<tr>
 			<td class="newdqwz"><span class="font_navigate">您所在的位置：</span><span
 				class="font_navigate">首页</span> <span class="font_navigate">&gt;</span><span
-						class="font_navigate">会员管理</span> <span class="font_navigate">&gt;</span>
+						class="font_navigate">奖金业绩</span> <span class="font_navigate">&gt;</span>
 						<span class="font_navigate">奖金明细</span>
 						</td>
 		</tr>
@@ -37,7 +37,7 @@ function goPage(v){
 			<td colspan="2" height="7"></td>
 		</tr>
 		<tr>
-			<td class="newZwTitle">充值记录</td>
+			<td class="newZwTitle">奖金明细</td>
 			<td class="newMoreBg">
 			</td>
 		</tr>

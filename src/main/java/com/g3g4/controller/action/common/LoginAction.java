@@ -3,6 +3,7 @@ package com.g3g4.controller.action.common;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.g3g4.common.Property;
 import com.g3g4.controller.action.BaseAction;
 import com.g3g4.model.Member;
 import com.g3g4.model.ScrollNotice;
@@ -125,6 +126,33 @@ public class LoginAction extends BaseAction {
 		}
 		
 		return "logOff";
+	}
+	
+	/**
+	 * 二级密码验证
+	 * @return
+	 */
+	public String op(){
+		String forwardUrl = this.getRequest().getParameter("forwardUrl");
+		
+		String passwd2 = this.getRequest().getParameter("passwd2");
+		Member member = (Member)this.getSession().getAttribute("member");
+		if(passwd2!=null && MD5Util.stringToMD5(passwd2).equals(member.getPasswd2())){
+			try {
+				this.getSession().setAttribute("passwd2", passwd2);
+				this.getResponse().sendRedirect(forwardUrl);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else{
+			try {
+				this.getResponse().sendRedirect(Property.BASE + "/jsp/passwd2.jsp?forwardUrl=" + forwardUrl);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return null;
 	}
 	
 }
