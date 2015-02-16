@@ -87,4 +87,11 @@
 			</property>
 	  </bean>
 	  
+	  <!-- 转报单币 action -->
+	  <bean id="tranTaxAction" class="com.g3g4.controller.action.tranTax.TranTaxAction" scope="prototype">
+			<property name="tranTaxService">
+				<ref bean="tranTaxService" />
+			</property>
+	  </bean>
+	  
 </beans>

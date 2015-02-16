@@ -89,4 +89,11 @@ public interface IMemberService {
 	 * @param member
 	 */
 	public void editCoin(Member member);
+
+	/**
+	 * 根据编码查询会员
+	 * @param member
+	 * @return
+	 */
+	public Member selectMemberByCode(Member member);
 }

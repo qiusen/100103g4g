@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.g3g4.dao.ITranTaxDAO">
+	
+	<cache flushInterval="600000" eviction="LRU" type="org.mybatis.caches.oscache.OSCache"/>
+	
+	<sql id="tranTaxLikeWhere">
+		<where>
+            <if test ="id != null and id > -1">
+				and `ID` = #{id}
+			</if>
+	        <if test ="code != null and code != ''">
+			    and `CODE` like '%${code}%'
+		    </if>
+	        <if test ="targetCode != null and targetCode != ''">
+			    and `TARGET_CODE` like '%${targetCode}%'
+		    </if>
+            <if test ="haveCoin != null and haveCoin > -1">
+				and `HAVE_COIN` = #{haveCoin}
+			</if>
+            <if test ="outCoin != null and outCoin > -1">
+				and `OUT_COIN` = #{outCoin}
+			</if>
+            <if test ="inCoin != null and inCoin > -1">
+				and `IN_COIN` = #{inCoin}
+			</if>
+            <if test ="leftCoin != null and leftCoin > -1">
+				and `LEFT_COIN` = #{leftCoin}
+			</if>
+	        <if test ="remark != null and remark != ''">
+			    and `REMARK` like '%${remark}%'
+		    </if>
+		</where>
+	</sql>
+	
+	<sql id="tranTaxPage">
+		<if test="null != start">
+		  limit #{start},#{pageSize}
+		</if>
+	</sql>
+	
+	<sql id="tranTaxField">
+		`ID`, `CODE`, `TARGET_CODE`, `HAVE_COIN`, `OUT_COIN`, `IN_COIN`, `LEFT_COIN`, `REMARK`, `DEALTIME`
+	</sql>
+	
+	<resultMap id="tranTaxMap" type="tranTax">
+	    	<result property="id" column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="code" column="CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="targetCode" column="TARGET_CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="haveCoin" column="HAVE_COIN" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="outCoin" column="OUT_COIN" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="inCoin" column="IN_COIN" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="leftCoin" column="LEFT_COIN" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="remark" column="REMARK" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="dealtime" column="DEALTIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+	<insert id="addSaveTranTax" parameterType="tranTax">
+		insert into `tran_tax` (
+           `CODE`, 
+           `TARGET_CODE`, 
+           `HAVE_COIN`, 
+           `OUT_COIN`, 
+           `IN_COIN`, 
+           `LEFT_COIN`, 
+           `REMARK`, 
+           `DEALTIME`
+		) values 
+		(
+            #{code}, 
+            #{targetCode}, 
+            #{haveCoin}, 
+            #{outCoin}, 
+            #{inCoin}, 
+            #{leftCoin}, 
+            #{remark}, 
+            #{dealtime}
+		)
+		<selectKey keyProperty="id"  resultType="java.lang.Integer">
+			select last_insert_id() as id from `tran_tax` limit 1
+		</selectKey>
+	</insert>
+	
+	<delete id="deleteByIds" parameterType="String">
+		delete from `tran_tax` ${_parameter}
+	</delete>
+	
+	<update id="editSaveTranTax" parameterType="tranTax">
+		update `tran_tax` set 
+              `CODE` = #{code}, 
+              `TARGET_CODE` = #{targetCode}, 
+              `HAVE_COIN` = #{haveCoin}, 
+              `OUT_COIN` = #{outCoin}, 
+              `IN_COIN` = #{inCoin}, 
+              `LEFT_COIN` = #{leftCoin}, 
+              `REMARK` = #{remark}, 
+              `DEALTIME` = #{dealtime}
+        	where ID = #{id}
+	</update>
+	
+	<select id="selectTranTaxById" parameterType="tranTax" resultMap="tranTaxMap"  >
+		SELECT * FROM `tran_tax` where ID = #{id}
+	</select>
+	
+	<select id="getTranTaxCount" parameterType="tranTax" resultType="Long" >
+		select count(*) from `tran_tax`
+		<include refid="tranTaxLikeWhere" />
+	</select>
+	
+	<select id="selectAll" parameterType="tranTax" resultMap="tranTaxMap" >
+		select * from `tran_tax`
+	</select>
+	
+	<select id="selectTranTaxLike" parameterType="tranTax" resultMap="tranTaxMap" >
+		SELECT <include refid="tranTaxField" /> FROM `tran_tax`
+	        <include refid="tranTaxLikeWhere" />
+			order by ID desc
+	        <include refid="tranTaxPage" /> 
+	</select>
+</mapper>

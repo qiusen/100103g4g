@@ -279,4 +279,9 @@
               ${idStr}
         	where `CODE` = #{code}
 	</update>
+	
+	<select id="selectMemberByCode" parameterType="member" resultMap="memberMap" >
+		SELECT <include refid="memberField" /> FROM `member`
+	        where `CODE` = #{code}
+	</select>
 </mapper>

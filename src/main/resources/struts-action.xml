@@ -138,4 +138,18 @@
     </package> 
     <!-- 现金币转报单币Action End -->
     
+    <!-- 转报单币Action Begin -->
+    <package name="struts-admin-tranTax" namespace="/op" extends="struts-interceptor">
+		<action name="tranTaxAction" class="tranTaxAction">
+			<result name="success" type="dispatcher">/jsp/tranTax/tranTaxList.jsp</result>
+			<result name="addSave" type="redirectAction">
+				<param name="actionName">tranTaxAction</param>
+				<param name="namespace">/op</param>
+				<param name="errCode">${errCode}</param>
+			</result>
+			<interceptor-ref name="common-params"/>
+        </action>
+    </package> 
+    <!-- 转报单币Action End -->
+    
 </struts>

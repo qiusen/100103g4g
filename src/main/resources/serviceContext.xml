@@ -34,4 +34,7 @@
 	  <!-- 现金币转报单币 service -->	
 	  <bean id="cashTaxService" class="com.g3g4.service.impl.CashTaxServiceImpl"/>
 	  
+	  <!-- 转报单币 service -->	
+	  <bean id="tranTaxService" class="com.g3g4.service.impl.TranTaxServiceImpl"/>
+	  
 </beans>
