@@ -37,4 +37,7 @@
 	  <!-- 转报单币 service -->	
 	  <bean id="tranTaxService" class="com.g3g4.service.impl.TranTaxServiceImpl"/>
 	  
+	  <!-- 提现 service -->	
+	  <bean id="withdrawService" class="com.g3g4.service.impl.WithdrawServiceImpl"/>
+	  
 </beans>

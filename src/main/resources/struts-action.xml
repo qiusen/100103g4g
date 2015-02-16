@@ -152,4 +152,18 @@
     </package> 
     <!-- 转报单币Action End -->
     
+    <!-- 提现Action Begin -->
+    <package name="struts-admin-withdraw" namespace="/op" extends="struts-interceptor">
+		<action name="withdrawAction" class="withdrawAction">
+			<result name="success" type="dispatcher">/jsp/withdraw/withdrawList.jsp</result>
+			<result name="addSave" type="redirectAction">
+				<param name="actionName">withdrawAction</param>
+				<param name="namespace">/op</param>
+				<param name="errCode">${errCode}</param>
+			</result>
+			<interceptor-ref name="common-params"/>
+        </action>
+    </package> 
+    <!-- 提现Action End -->
+    
 </struts>

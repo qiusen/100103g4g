@@ -12,7 +12,6 @@ import com.g3g4.service.ITranTaxService;
 import com.g3g4.util.MD5Util;
 import com.g3g4.util.Page;
 import com.g3g4.util.TypeUtil;
-import com.g3g4.util.json.JSONUtil;
 
 /**
  * 转报单币Action
@@ -97,9 +96,9 @@ public class TranTaxAction extends BaseAction {
 			this.getRequest().setAttribute("resultList", resultList);
 			this.getRequest().setAttribute("actionName","tranTaxAction");
 
-			String json = "\"Rows\":" + JSONUtil.objectArrayToJson(resultList)+", \"Total\":" + pageInfo.getResultCount();
-			System.out.println("TranTax json:::::::::::::::::::" + json);
-			this.getRequest().setAttribute("json", json);
+//			String json = "\"Rows\":" + JSONUtil.objectArrayToJson(resultList)+", \"Total\":" + pageInfo.getResultCount();
+//			System.out.println("TranTax json:::::::::::::::::::" + json);
+//			this.getRequest().setAttribute("json", json);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

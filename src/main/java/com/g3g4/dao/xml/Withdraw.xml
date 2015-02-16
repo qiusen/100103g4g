@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.g3g4.dao.IWithdrawDAO">
+	
+	<cache flushInterval="600000" eviction="LRU" type="org.mybatis.caches.oscache.OSCache"/>
+	
+	<sql id="withdrawLikeWhere">
+		<where>
+            <if test ="id != null and id > -1">
+				and `ID` = #{id}
+			</if>
+	        <if test ="code != null and code != ''">
+			    and `CODE` like '%${code}%'
+		    </if>
+            <if test ="haveCoin != null and haveCoin > -1">
+				and `HAVE_COIN` = #{haveCoin}
+			</if>
+            <if test ="coin != null and coin > -1">
+				and `COIN` = #{coin}
+			</if>
+            <if test ="leftCoin != null and leftCoin > -1">
+				and `LEFT_COIN` = #{leftCoin}
+			</if>
+	        <if test ="remark != null and remark != ''">
+			    and `REMARK` like '%${remark}%'
+		    </if>
+            <if test ="status != null and status > -1">
+				and `STATUS` = #{status}
+			</if>
+	        <if test ="dealor != null and dealor != ''">
+			    and `DEALOR` like '%${dealor}%'
+		    </if>
+		</where>
+	</sql>
+	
+	<sql id="withdrawPage">
+		<if test="null != start">
+		  limit #{start},#{pageSize}
+		</if>
+	</sql>
+	
+	<sql id="withdrawField">
+		`ID`, `CODE`, `HAVE_COIN`, `COIN`, `LEFT_COIN`, `REMARK`, `STATUS`, `CREATETIME`, `DEALOR`, `DEALTIME`
+	</sql>
+	
+	<resultMap id="withdrawMap" type="withdraw">
+	    	<result property="id" column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="code" column="CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="haveCoin" column="HAVE_COIN" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="coin" column="COIN" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="leftCoin" column="LEFT_COIN" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="remark" column="REMARK" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="status" column="STATUS" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="createtime" column="CREATETIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	    	<result property="dealor" column="DEALOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="dealtime" column="DEALTIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+	<insert id="addSaveWithdraw" parameterType="withdraw">
+		insert into `withdraw` (
+           `CODE`, 
+           `HAVE_COIN`, 
+           `COIN`, 
+           `LEFT_COIN`, 
+           `REMARK`, 
+           `STATUS`, 
+           `CREATETIME`, 
+           `DEALOR`, 
+           `DEALTIME`
+		) values 
+		(
+            #{code}, 
+            #{haveCoin}, 
+            #{coin}, 
+            #{leftCoin}, 
+            #{remark}, 
+            #{status}, 
+            #{createtime}, 
+            #{dealor}, 
+            #{dealtime}
+		)
+		<selectKey keyProperty="id"  resultType="java.lang.Integer">
+			select last_insert_id() as id from `withdraw` limit 1
+		</selectKey>
+	</insert>
+	
+	<delete id="deleteByIds" parameterType="String">
+		delete from `withdraw` ${_parameter}
+	</delete>
+	
+	<update id="editSaveWithdraw" parameterType="withdraw">
+		update `withdraw` set 
+              `CODE` = #{code}, 
+              `HAVE_COIN` = #{haveCoin}, 
+              `COIN` = #{coin}, 
+              `LEFT_COIN` = #{leftCoin}, 
+              `REMARK` = #{remark}, 
+              `STATUS` = #{status}, 
+              `CREATETIME` = #{createtime}, 
+              `DEALOR` = #{dealor}, 
+              `DEALTIME` = #{dealtime}
+        	where ID = #{id}
+	</update>
+	
+	<select id="selectWithdrawById" parameterType="withdraw" resultMap="withdrawMap"  >
+		SELECT * FROM `withdraw` where ID = #{id}
+	</select>
+	
+	<select id="getWithdrawCount" parameterType="withdraw" resultType="Long" >
+		select count(*) from `withdraw`
+		<include refid="withdrawLikeWhere" />
+	</select>
+	
+	<select id="selectAll" parameterType="withdraw" resultMap="withdrawMap" >
+		select * from `withdraw`
+	</select>
+	
+	<select id="selectWithdrawLike" parameterType="withdraw" resultMap="withdrawMap" >
+		SELECT <include refid="withdrawField" /> FROM `withdraw`
+	        <include refid="withdrawLikeWhere" />
+			order by ID desc
+	        <include refid="withdrawPage" /> 
+	</select>
+</mapper>

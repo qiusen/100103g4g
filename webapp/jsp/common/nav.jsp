@@ -29,7 +29,7 @@
 				<ul>
 					<li><a href="${base }/op/bonusAction.${actionExt }" target="mainFrame">奖金明细</a></li>
 					<li><a href="userlogin.html" target="_self">电商币名细</a></li>
-					<li><a href="userlogin.html" target="_self">申请提现</a></li>
+					<li><a href="${base }/op/withdrawAction.${actionExt }" target="mainFrame">申请提现</a></li>
 					<li><a href="${base }/op/tranTaxAction.${actionExt }" target="mainFrame">转报单币</a></li>
 					<li><a href="${base }/op/cashTaxAction.${actionExt }" target="mainFrame">现金币转报单币</a></li>
 					<!--登陆进去后进入：usermanage.html-->
