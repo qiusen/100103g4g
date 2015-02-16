@@ -130,7 +130,7 @@ public class Member extends BaseModel{
 	/**
 	 * 级别
 	 */
-	private Integer level;
+	private String level;
 	
 	/**
 	 * 状态：0、未审；1、已审
@@ -298,10 +298,11 @@ public class Member extends BaseModel{
 	public void setShopCoin(Double shopCoin) {
 		this.shopCoin = shopCoin;
 	}
-	public Integer getLevel() {
+	
+	public String getLevel() {
 		return level;
 	}
-	public void setLevel(Integer level) {
+	public void setLevel(String level) {
 		this.level = level;
 	}
 	public Integer getStatus() {

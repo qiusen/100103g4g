@@ -60,7 +60,7 @@
             <if test ="shopCoin != null and shopCoin > -1">
 				and `SHOP_COIN` = #{shopCoin}
 			</if>
-            <if test ="level != null and level > -1">
+            <if test ="level != null and level != ''">
 				and `LEVEL` = #{level}
 			</if>
             <if test ="status != null and status > -1">
@@ -113,7 +113,7 @@
 	    	<result property="taxCoin" column="TAX_COIN" javaType="java.lang.Double" jdbcType="DOUBLE" />
 	    	<result property="cashCoin" column="CASH_COIN" javaType="java.lang.Double" jdbcType="DOUBLE" />
 	    	<result property="shopCoin" column="SHOP_COIN" javaType="java.lang.Double" jdbcType="DOUBLE" />
-	    	<result property="level" column="LEVEL" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="level" column="LEVEL" javaType="java.lang.String" jdbcType="VARCHAR" />
 	    	<result property="status" column="STATUS" javaType="java.lang.Integer" jdbcType="INTEGER" />
 	    	<result property="ac" column="AC" javaType="java.lang.Integer" jdbcType="INTEGER" />
 	    	<result property="bc" column="BC" javaType="java.lang.Integer" jdbcType="INTEGER" />

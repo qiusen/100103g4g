@@ -29,7 +29,7 @@ alert('三级密码错误');
 </c:if>
 
 <c:if test="${requestScope.errCode!=null && requestScope.errCode=='coinerr'}">
-alert('转换金我额错误');
+alert('转换金额错误');
 </c:if>
 
 </script>

@@ -117,7 +117,7 @@ public class MemberAction extends BaseAction {
 		member.setTaxCoin(0.00);
 		member.setCashCoin(0.00);
 		member.setShopCoin(0.00);
-		member.setLevel(0);
+		member.setLevel("");
 		
 		Member memberVO = (Member)this.getSession().getAttribute("member");
 		member.setCreator(memberVO.getCode());

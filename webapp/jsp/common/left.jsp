@@ -43,7 +43,12 @@
 												style="color: Black; font-weight: bold;">${sessionScope.member.shopCoin}</span>
 											</li>
 											<li>晋升级别:<span id="Label7"
-												style="color: Black; font-weight: bold;">--------</span>
+												style="color: Black; font-weight: bold;">
+											<c:choose>
+											<c:when test="${sessionScope.member.level!=null}">${sessionScope.member.level}</c:when>
+											<c:otherwise>--------</c:otherwise>
+											</c:choose>
+												</span>
 											</li>
 										</ul>
 									</div> <br> <a
