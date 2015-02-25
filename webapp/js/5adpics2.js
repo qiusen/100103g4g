@@ -4,7 +4,7 @@ slideimages[0]="../images/ad-01.jpg";
 slideimages[1]="../images/ad-02.jpg";
 slideimages[2]="../images/ad-03.jpg";
 slideimages[3]="../images/ad-04.jpg";
-//slideimages[4]="images/ad-05.jpg";
+//slideimages[4]="../images/ad-05.jpg";
 
 //slidetext数组为变换的文字
 var slidetext=new Array();
@@ -100,4 +100,14 @@ function ou(){slideit()}
 					//document.getElementById("xiaosan5").src=slidesanjiaoimages[0];
 					document.getElementById(slidesanjiaoimagesname[whichimage]).src=slidesanjiaoimages[1];
 				}
-		
+
+/*iframeAuto start*/
+function iframeAuto(){
+    var oIframe=document.getElementById("mainFrame");
+    var targetContent=document.iframes?document.iframes["mainFrame"].document:oIframe.contentDocument;
+
+    if(oIframe && targetContent) {
+        alert(targetContent.body.scrollHeight);
+        oIframe.height=targetContent.body.scrollHeight;
+    }
+}

@@ -25,12 +25,12 @@ body
 
 .l1{
     text-align:center;
-    background-position: left center; background-image: url(images/sh1.gif); background-repeat: no-repeat;
+    background-position: left center; background-image: url(../images/sh1.gif); background-repeat: no-repeat;
     font-size:12px;
 
 }
 .l2{ text-align:center;
-    background-position: left center; background-image: url(images/sh2.gif); background-repeat: no-repeat;
+    background-position: left center; background-image: url(../images/sh2.gif); background-repeat: no-repeat;
 
     font-size:12px;
 }
@@ -70,4 +70,24 @@ A:hover
 td
 {
 
+}
+.atc .title{font-size:14px; font-weight:bolder;color:#e60000;line-height:30px;text-align:center;}
+.atc .time{font-size:12px;text-align:center;color:#aaa;line-height:20px;}
+.atc .contnt{padding:10px; line-height:25px;}
+.page{ margin-top: 20px;}
+.page span.current{ display: inline-block; background: #e60000; padding: 7px 10px; color: #fff; margin:0px 5px;}
+.page a{ display: inline-block; background:#dadada; padding: 7px 10px;color: #333}
+.bor_table{width: 90%;}
+.bor_table th{border-bottom: 1px solid #f5f5f5;padding: 5px;     text-align: left;  font-weight: bolder;}
+.bor_table td{border-bottom: 1px solid #f5f5f5;padding: 5px;}
+
+.icon-admin-on{
+    display:block; cursor:pointer;
+    height: 16px;
+    background: url("../images/icon_on.png") no-repeat;
+}
+.icon-admin-off{
+    display:block;
+    height: 16px;
+    background: url("../images/icon_off.png") no-repeat;
 }

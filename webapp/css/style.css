@@ -146,6 +146,10 @@ A:active {
     PADDING-TOP: 1px
 }
 
+.tablepad tbody tr td{
+    padding-left:5px;
+    padding-right:5px
+}
 .font_orange {
     COLOR: #fe5a01;
     FONT-SIZE: 12px;
@@ -1130,4 +1134,14 @@ INPUT.newButbg {
 .btnimg {
     width: 43px;
     height: 22px;
+}
+#foot {
+	width: 100%;
+	margin: 20px auto 0;
+	height: 60px;
+	background-color: #DADADA;
+	line-height: 20px;
+	padding-top: 16px;
+	border-top: 5px solid #C1C1C1;
+	text-align: center;
 }

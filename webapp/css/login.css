@@ -2,7 +2,7 @@ body {
     margin:0px;
     font-size:12px;
     background-color: #CCDAF7;
-    background-image: url(http://localhost:8080/100103g4g/images/d.jpg);
+    background-image: url(../images/d.jpg);
     background-repeat: no-repeat;
     background-position: top;
     background-attachment: fixed;
@@ -11,8 +11,8 @@ body {
     -o-background-size: 100% 100%; /* Opera 9.5 */
     -webkit-background-size: 100% 100%; /* Safari 3.0 */
     background-size: 100% 100%; /*  Firefox 4.0 and other CSS3-compliant browsers */
-    -moz-border-image: url(http://localhost:8080/100103g4g/images/d.jpg) 0; /* Firefox 3.5 */
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://localhost:8080/100103g4g/images/d.jpg', sizingMethod='scale');
+    -moz-border-image: url(../images/d.jpg) 0; /* Firefox 3.5 */
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/d.jpg', sizingMethod='scale');
     position: relative;
     line-height: 2;
     height: 100%;

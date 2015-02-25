@@ -1,14 +1,3 @@
-/*body {
-    position: relative;
-}*/
-/*
-
-* {
-    margin: 0px;
-    padding: 0px;
-}
-*/
-
 .top, .main, .footer {
     margin: 0 auto;
 }
@@ -45,6 +34,7 @@
 
 .footer {
     width: 100%;
+    margin-top:20px;
 }
 
 
@@ -118,6 +108,7 @@ img {
 #heading {
     width: 100%;
     overflow: hidden;
+    
 }
 
 .logo {
@@ -126,31 +117,31 @@ img {
 }
 
 .moblie_sms {
-    FLOAT: left;
-    MARGIN: 19px 0px 0px 50px;
-    WIDTH: 110px
+    float: left;
+    margin: 19px 0px 0px 50px;
+    width: 110px
 }
 
 .moblie_sms LI {
-    PADDING-RIGHT: 0px;
-    PADDING-LEFT: 25px;
-    PADDING-BOTTOM: 0px;
-    COLOR: #666;
-    PADDING-TOP: 2px;
-    LIST-STYLE-TYPE: none;
-    HEIGHT: 22px
+    padding-right: 0px;
+    padding-left: 25px;
+    padding-bottom: 0px;
+    color: #666;
+    padding-top: 2px;
+    list-style-type: none;
+    height: 22px
 }
 
 .moblie_bj {
-    BACKGROUND: url(../images/mobile.gif) no-repeat
+    background: url(../images/mobile.gif) no-repeat
 }
 
 .xinlang_wb {
-    BACKGROUND: url(../images/wb.jpg) no-repeat
+    background: url(../images/wb.jpg) no-repeat
 }
 
 .sms_bj {
-    BACKGROUND: url(../images/sms.gif) no-repeat
+    background: url(../images/sms.gif) no-repeat
 }
 
 .logo-r {
@@ -409,13 +400,16 @@ img {
 
 .zhucetab {
     margin-left: 60px;
+
 }
+
 
 .zhucetab td {
     height: 25px;
     line-height: 18px;
     padding-bottom: 10px;
     color: #666666;
+
 }
 
 .zhuceinput, .zhuceselect {
@@ -489,79 +483,110 @@ td.area p {
 .underline {
     text-decoration: underline;
 }
-/* news/inputpass/user start*/
+
+.team-content thead tr th{
+    text-align: left;
+}
+.icon-admin{
+    display:block;
+    background: url("../images/icon-admin.png") no-repeat;
+}
 
 
 .usermanage{
     width:745px;
+    float:left;
     margin-top:5px;
     display:inline-block;
     border:1px solid #ccc;
+    padding-top:10px;
+    padding-bottom:10px;
 }
 .usermanage .reserch{
     width:100%;
-    height: 30px; 
+    height: 30px;
     margin-top:5px;
-    line-height: 30px;     
+    line-height: 30px;
 }
 .usermanage .reserch span{
- display:inline; 
- padding-left: 20px;
+    display:inline;
+    padding-left: 20px;
 }
 .usermanage ul{
-     height: 100%;
-     margin-left:20px;
-     display:block;
-     list-style: none;
+    height: 100%;
+    margin-left:20px;
+    text-align: left;
+    margin-left:40px;
+    /*display:none;*/
+    list-style: none;
 }
 .usermanage ul li{
-   width:100%;
-   line-height:25px;
-   float:left; 
+    width:100%;
+    line-height:25px;
+    float:left;
 
 }
 .usermanage ul li span{
-   width:18px; 
-   height:20px; 
-   cursor: pointer;
-   display: inline-block; 
-   /*background:url("../images/down.png") no-repeat;*/
-   position:relative; 
-   top: 5px;
+    width:18px;
+    height:20px;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    /*background:url("images/down.png") no-repeat;*/
+    /*position:relative;
+    top: 5px;*/
 }
 .usermanage ul li span.down{
-   background:url("../images/down.png") no-repeat;
+    background:url("../images/icon_off.png") no-repeat;/* - */
 }
 .usermanage ul li span.up{
-   background:url("../images/up.png") no-repeat;
+    background:url("../images/icon_on.png") no-repeat;/* + */
 }
 
 .usermanage ul li ul{
-  width:100%;
-  height: 100%;
-  text-indent: 10px;
-  display:block;
+    width:100%;
+    height: 100%;
+    text-indent: 10px;
+    display:none;
 }
-.usermanage ul li ul li{ 
-  width:100%; 
-  margin:0px; 
-  padding: 0px;
-  display:block;
-}
-
-.usermanage ul li ul li ul{ 
-  height: 100%;
-  height: 100%;
-  text-indent: 20px;
-  display:block;
- /* line-height:25px;*/
+.usermanage ul li ul li{
+    width:100%;
+    margin:0px;
+    padding: 0px;
+    /* display:block;*/
 }
 
-.usermanage ul li ul li ul li{ 
-  border-top:none;
-  width:100%;
-  line-height:25px;  
-  margin:0px; 
-  padding: 0px;
-  display:block;
+.usermanage ul li ul li ul{
+    height: 100%;
+    height: 100%;
+    text-indent: 20px;
+    display:none;
+    /* line-height:25px;*/
+}
+
+.usermanage ul li ul li ul li{
+    border-top:none;
+    width:100%;
+    line-height:25px;
+    margin:0px;
+    padding: 0px;
+    display:block;
+}
+.display-none{display: none;}
+.display-block{display: block;}
+/* news/inputpass/user start*/
+
+#gongao{
+    width:550px; height:30px; float:right; overflow:hidden; line-height:30px; font-size:13px;font-family:'宋体';color:red;font-weight:bold;
+}
+#gongao #scroll_begin, #gongao #scroll_end{display:inline}
+#foot {
+    width: 100%;
+    margin: 0 auto;
+    height: 60px;
+    background-color: #DADADA;
+    line-height: 20px;
+    padding-top: 16px;
+    border-top: 5px solid #C1C1C1;
+    text-align: center;
 }
