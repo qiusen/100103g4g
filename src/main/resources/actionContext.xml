@@ -101,4 +101,11 @@
 			</property>
 	  </bean>
 	  
+	  <!-- 电商币结算 action -->
+	  <bean id="shopCoinAction" class="com.g3g4.controller.action.shopCoin.ShopCoinAction" scope="prototype">
+			<property name="shopCoinService">
+				<ref bean="shopCoinService" />
+			</property>
+	  </bean>
+	  
 </beans>

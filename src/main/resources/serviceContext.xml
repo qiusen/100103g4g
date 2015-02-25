@@ -40,4 +40,7 @@
 	  <!-- 提现 service -->	
 	  <bean id="withdrawService" class="com.g3g4.service.impl.WithdrawServiceImpl"/>
 	  
+	  <!-- 电商币结算 service -->	
+	  <bean id="shopCoinService" class="com.g3g4.service.impl.ShopCoinServiceImpl"/>
+	  
 </beans>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.g3g4.dao.IShopCoinDAO">
+	
+	<cache flushInterval="600000" eviction="LRU" type="org.mybatis.caches.oscache.OSCache"/>
+	
+	<sql id="shopCoinLikeWhere">
+		<where>
+            <if test ="id != null and id > -1">
+				and `ID` = #{id}
+			</if>
+	        <if test ="code != null and code != ''">
+			    and `CODE` like '%${code}%'
+		    </if>
+	        <if test ="name != null and name != ''">
+			    and `NAME` like '%${name}%'
+		    </if>
+            <if test ="coin != null and coin > -1">
+				and `COIN` = #{coin}
+			</if>
+	        <if test ="dealor != null and dealor != ''">
+			    and `DEALOR` like '%${dealor}%'
+		    </if>
+		</where>
+	</sql>
+	
+	<sql id="shopCoinPage">
+		<if test="null != start">
+		  limit #{start},#{pageSize}
+		</if>
+	</sql>
+	
+	<sql id="shopCoinField">
+		`ID`, `CODE`, `NAME`, `COIN`, `DEALOR`, `DEALTIME`
+	</sql>
+	
+	<resultMap id="shopCoinMap" type="shopCoin">
+	    	<result property="id" column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+	    	<result property="code" column="CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="name" column="NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="coin" column="COIN" javaType="java.lang.Double" jdbcType="DOUBLE" />
+	    	<result property="dealor" column="DEALOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+	    	<result property="dealtime" column="DEALTIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+	<insert id="addSaveShopCoin" parameterType="shopCoin">
+		insert into `shop_coin` (
+           `CODE`, 
+           `NAME`, 
+           `COIN`, 
+           `DEALOR`, 
+           `DEALTIME`
+		) values 
+		(
+            #{code}, 
+            #{name}, 
+            #{coin}, 
+            #{dealor}, 
+            #{dealtime}
+		)
+		<selectKey keyProperty="id"  resultType="java.lang.Integer">
+			select last_insert_id() as id from `shop_coin` limit 1
+		</selectKey>
+	</insert>
+	
+	<delete id="deleteByIds" parameterType="String">
+		delete from `shop_coin` ${_parameter}
+	</delete>
+	
+	<update id="editSaveShopCoin" parameterType="shopCoin">
+		update `shop_coin` set 
+              `CODE` = #{code}, 
+              `NAME` = #{name}, 
+              `COIN` = #{coin}, 
+              `DEALOR` = #{dealor}, 
+              `DEALTIME` = #{dealtime}
+        	where ID = #{id}
+	</update>
+	
+	<select id="selectShopCoinById" parameterType="shopCoin" resultMap="shopCoinMap"  >
+		SELECT * FROM `shop_coin` where ID = #{id}
+	</select>
+	
+	<select id="getShopCoinCount" parameterType="shopCoin" resultType="Long" >
+		select count(*) from `shop_coin`
+		<include refid="shopCoinLikeWhere" />
+	</select>
+	
+	<select id="selectAll" parameterType="shopCoin" resultMap="shopCoinMap" >
+		select * from `shop_coin`
+	</select>
+	
+	<select id="selectShopCoinLike" parameterType="shopCoin" resultMap="shopCoinMap" >
+		SELECT <include refid="shopCoinField" /> FROM `shop_coin`
+	        <include refid="shopCoinLikeWhere" />
+			order by ID desc
+	        <include refid="shopCoinPage" /> 
+	</select>
+</mapper>
