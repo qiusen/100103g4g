@@ -86,9 +86,9 @@ public class CheckImageServlet extends HttpServlet {
 		for (int i = 0; i < 4; i++) {
 
 			// 测试阶段使用1111
-			String rand = "1";
+//			String rand = "1";
 
-			// String rand=String.valueOf(random.nextInt(10));
+			String rand=String.valueOf(random.nextInt(10));
 
 			sRand.append(rand);
 			// 将认证码显示到图象中
