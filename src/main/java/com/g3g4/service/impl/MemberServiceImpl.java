@@ -120,4 +120,14 @@ public class MemberServiceImpl implements IMemberService {
 		// TODO Auto-generated method stub
 		return memberDAO.selectMemberByCode(member);
 	}
+
+
+	/* (non-Javadoc)
+	 * @see com.g3g4.service.IMemberService#selectMemberByManagerCodeArea(com.g3g4.model.Member)
+	 */
+	@Override
+	public Member selectMemberByManagerCodeArea(Member member) {
+		// TODO Auto-generated method stub
+		return memberDAO.selectMemberByManagerCodeArea(member);
+	}
 }

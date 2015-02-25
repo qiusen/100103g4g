@@ -228,6 +228,127 @@ public class MemberAction extends BaseAction {
 	}
 	
 	/**
+	 * 团队
+	 * @return
+	 */
+	public String usermanage(){
+		String code = this.getRequest().getParameter("code");
+		if(code==null || code.trim().length()==0){
+			Member memberVO = (Member)this.getSession().getAttribute("member");
+			code = memberVO.getCode();
+		}
+		
+		member.setCode(code);
+		Member member1 = memberService.selectMemberByCode(member);//查询人 第一层
+		if(member1!=null){	
+			//第二层
+			member.setManagerCode(code);
+			member.setArea("A");
+			Member a2m = memberService.selectMemberByManagerCodeArea(member);
+			
+			member.setArea("B");
+			Member b2m = memberService.selectMemberByManagerCodeArea(member);
+			
+			//第三层
+			if(a2m!=null){
+				member1.setAm(a2m);
+				
+				member.setManagerCode(a2m.getCode());
+				member.setArea("A");
+				Member aA3m = memberService.selectMemberByManagerCodeArea(member);
+				
+				member.setArea("B");
+				Member aB3m = memberService.selectMemberByManagerCodeArea(member);
+				
+				//第四层
+				if(aA3m!=null){
+					a2m.setAm(aA3m);
+					
+					member.setManagerCode(aA3m.getCode());
+					member.setArea("A");
+					Member aAA4m = memberService.selectMemberByManagerCodeArea(member);
+					
+					member.setArea("B");
+					Member aAB4m = memberService.selectMemberByManagerCodeArea(member);
+					
+					if(aAA4m!=null){
+						aA3m.setAm(aAA4m);
+					}
+					if(aAB4m!=null){
+						aA3m.setBm(aAB4m);
+					}
+				}
+				if(aB3m!=null){
+					a2m.setBm(aB3m);
+					
+					member.setManagerCode(aB3m.getCode());
+					member.setArea("A");
+					Member aBA4m = memberService.selectMemberByManagerCodeArea(member);
+					
+					member.setArea("B");
+					Member aBB4m = memberService.selectMemberByManagerCodeArea(member);
+					
+					if(aBA4m!=null){
+						aB3m.setAm(aBA4m);
+					}
+					if(aBB4m!=null){
+						aB3m.setBm(aBB4m);
+					}
+				}
+			}
+			if(b2m!=null){
+				member1.setBm(b2m);
+				member.setManagerCode(b2m.getCode());
+				member.setArea("A");
+				Member bA3m = memberService.selectMemberByManagerCodeArea(member);
+				
+				member.setArea("B");
+				Member bB3m = memberService.selectMemberByManagerCodeArea(member);
+				
+				//第四层
+				if(bA3m!=null){
+					b2m.setAm(bA3m);
+					
+					member.setManagerCode(bA3m.getCode());
+					member.setArea("A");
+					Member bAA4m = memberService.selectMemberByManagerCodeArea(member);
+					
+					member.setArea("B");
+					Member bAB4m = memberService.selectMemberByManagerCodeArea(member);
+					
+					if(bAA4m!=null){
+						bA3m.setAm(bAA4m);
+					}
+					if(bAB4m!=null){
+						bA3m.setBm(bAB4m);
+					}
+				}
+				if(bB3m!=null){
+					b2m.setBm(bB3m);
+					
+					member.setManagerCode(bB3m.getCode());
+					member.setArea("A");
+					Member bBA4m = memberService.selectMemberByManagerCodeArea(member);
+					
+					member.setArea("B");
+					Member bBB4m = memberService.selectMemberByManagerCodeArea(member);
+					
+					if(bBA4m!=null){
+						bB3m.setAm(bBA4m);
+					}
+					if(bBB4m!=null){
+						bB3m.setBm(bBB4m);
+					}
+				}
+			}
+			
+			this.getRequest().setAttribute("member1", member1);
+		}
+		
+		return "usermanage";
+	}
+	
+	/**
 	 * 修改 会员
 	 * @return
 	 */

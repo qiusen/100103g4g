@@ -96,4 +96,11 @@ public interface IMemberService {
 	 * @return
 	 */
 	public Member selectMemberByCode(Member member);
+
+	/**
+	 * 根据管理员CODE和区域查询
+	 * @param member
+	 * @return
+	 */
+	public Member selectMemberByManagerCodeArea(Member member);
 }

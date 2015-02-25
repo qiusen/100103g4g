@@ -32,6 +32,7 @@
 			<result name="changePasswd" type="dispatcher">/jsp/member/memberPasswd.jsp</result>
 			<result name="sale" type="dispatcher">/jsp/member/memberSale.jsp</result>
 			<result name="area" type="dispatcher">/jsp/member/memberArea.jsp</result>
+			<result name="usermanage" type="dispatcher">/jsp/member/usermanage.jsp</result>
 			<interceptor-ref name="common-params"/>
         </action>
     </package> 

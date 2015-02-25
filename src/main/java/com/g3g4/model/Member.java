@@ -176,6 +176,17 @@ public class Member extends BaseModel{
 	 * 审核时间
 	 */
 	private Date exatetime;
+	
+	/**
+	 * A区下线
+	 */
+	private Member am;
+	
+	/**
+	 * B区下线
+	 */
+	private Member bm;
+	
 	public String getCode() {
 		return code;
 	}
@@ -376,6 +387,18 @@ public class Member extends BaseModel{
 	}
 	public void setBc(Integer bc) {
 		this.bc = bc;
+	}
+	public Member getAm() {
+		return am;
+	}
+	public void setAm(Member am) {
+		this.am = am;
+	}
+	public Member getBm() {
+		return bm;
+	}
+	public void setBm(Member bm) {
+		this.bm = bm;
 	}
 	
 }
