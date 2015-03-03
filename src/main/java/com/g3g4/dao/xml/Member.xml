@@ -285,7 +285,7 @@
 	        where `CODE` = #{code}
 	</select>
 	
-	<select id="selectMemberByManagerCodeArea" parameterType="member" resultMap="memberMap" >
+	<select id="selectMemberByManagerCodeArea" parameterType="member" resultMap="memberMap" useCache="false">
 		SELECT <include refid="memberField" /> FROM `member`
 	        where `MANAGER_CODE` = #{managerCode} and `AREA` = #{area} and `STATUS` = 1
 	        limit 1

@@ -87,7 +87,7 @@ alert('转换金额错误');
                   <td align="right" style="width: 70px">
                       提取金额：</td>
                   <td align="left" style="width: 100px">
-                      <input name="coin" type="text" id="coin" style="width:80px;"></td>
+                      <input name="coin" type="text" id="coin" style="width:80px;" value="0.0"></td>
                   <td align="right" style="width: 100px">
                       三级密码：</td>
                   <td align="left" style="width: 100px">

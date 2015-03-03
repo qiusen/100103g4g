@@ -24,7 +24,7 @@ window.location="${base}";
 <!--头包含开始-->
 <script language="JavaScript" type="text/javascript" src="${base}/js/Navtag.js"></script>
 <script type="text/javascript" src="${base}/js/stat.js"></script>
-
+<script type="text/javascript" src="${base}/js/base.js"></script>
 <script type="text/javascript" language="javascript">
         function iFrameHeight() {
             var ifm = document.getElementById("mainFrame");
@@ -63,7 +63,7 @@ window.location="${base}";
 		<%@ include file="/jsp/common/left.jsp"%>
 		</div>
 		<div class="right">
-		<iframe scrolling="no" src="${base }/index.${actionExt}" width="745" frameborder="0" height="1000" id="mainFrame" name="mainFrame"></iframe>
+		<iframe scrolling="no" src="${base }/index.${actionExt}" width="100%" frameborder="0" id="mainFrame" name="mainFrame"></iframe>
 		<!-- 
 			<table border="0" cellpadding="0" cellspacing="0" width="745">
 				<tbody>
