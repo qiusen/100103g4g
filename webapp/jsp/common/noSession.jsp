@@ -2,9 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title><%=Property.SYSTEM_NAME %></title>
-<%@ include file="/jsp/common/meta.jsp"%>
+<script type="text/javascript">
+alert('为了系统安全，请重新登录！！！');
+window.parent.location="<%=Property.BASE %>";
+</script>
 </head>
-
 <body>
 <div style="margin-top:50px;margin-left:100px;">
 为了系统安全，请重新登录！！！
