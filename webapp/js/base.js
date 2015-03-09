@@ -4,9 +4,9 @@ var GLOBAL={}||"GLOBAL in not can't be null!"
 GLOBAL.iframeAuto=function(){
     var oIframe=document.getElementById("mainFrame");
     var targetContent=document.iframes?document.iframes["mainFrame"].document:oIframe.contentDocument;
-           //alert(targetContent);
+          // alert(targetContent);
     if(oIframe && targetContent) {
-        //alert(targetContent.body.scrollHeight);
+       // alert(targetContent.body.scrollHeight);
         oIframe.height=targetContent.body.scrollHeight;
     }
 }

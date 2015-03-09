@@ -7,6 +7,7 @@ alert('为了系统安全，请重新登录！！！');
 window.parent.location="<%=Property.BASE %>";
 </script>
 </head>
+
 <body>
 <div style="margin-top:50px;margin-left:100px;">
 为了系统安全，请重新登录！！！

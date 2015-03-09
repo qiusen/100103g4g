@@ -123,6 +123,8 @@ public class LoginAction extends BaseAction {
 			//记录日志
 			this.recordLogs(logger, "logoff", member.getName() + " 登出");
 			this.getSession().removeAttribute("member");
+			
+			this.getSession().removeAttribute("scrollNotice");
 		}
 		
 		return "logOff";

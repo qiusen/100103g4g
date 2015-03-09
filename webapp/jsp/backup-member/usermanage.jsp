@@ -46,13 +46,13 @@
            <td valign="top" height="50" align="left" colspan="15">
                <table cellspacing="0" cellpadding="0" border="0" height="30" style="width: 740px">
                    <tbody><tr>
-                       <!-- td style="width: 45px">
+                       <td style="width: 45px">
                            查询:
                        </td>
                        <td style="width: 100px">
                            <input type="text" style="width:100px;" id="code" name="code"></td>
                        <td style="width: 125px">
-                           <input type="submit" class="tijiaobtn2" id="Button1" value="查询" name="Button1"></td -->
+                           <input type="submit" class="tijiaobtn2" id="Button1" value="查询" name="Button1"></td>
                        <td align="center">
                            <span style="display:inline-block;background-color:#80FF80;height:16px;width:16px;" id="Label61"></span>：浅绿表示已审核</td>
                        <td align="center">
