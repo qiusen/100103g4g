@@ -50,7 +50,7 @@ body {
 
 
 <body style="OVERFLOW-X: hidden; OVERFLOW-Y: hidden;">
-	<form name="form1" method="post" action="login.${actionExt}" id="form1">
+	<form name="form1" method="post" action="${base}/login.${actionExt}" id="form1">
 		<div>
 			<div id="UpdatePanel1">
 				<div class="youzhong">.</div>
