@@ -124,7 +124,7 @@ Member member = (Member)this.getSession().getAttribute("member");
 		
 		if(passwd3!=null && MD5Util.stringToMD5(passwd3).equals(member.getPasswd3())){
 			
-			if(coin<0.00 || coin<=member.getCashCoin()){
+			if(coin>0.00 && coin<=member.getCashCoin()){
 				String remark = this.getRequest().getParameter("remark");
 				
 				withdraw.setCode(member.getCode());

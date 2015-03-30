@@ -124,7 +124,7 @@ public class TranTaxAction extends BaseAction {
 		
 		if(passwd3!=null && MD5Util.stringToMD5(passwd3).equals(member.getPasswd3())){
 			
-			if(coin<0.00 || coin<=member.getTaxCoin()){
+			if(coin>0.00 && coin<=member.getTaxCoin()){
 				String targetCode = this.getRequest().getParameter("targetCode");
 				String remark = this.getRequest().getParameter("remark");
 				

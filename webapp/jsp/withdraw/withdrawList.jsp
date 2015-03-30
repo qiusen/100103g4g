@@ -102,6 +102,7 @@ alert('转换金额错误');
                     <th scope="col"><a href="javascript:__doPostBack('GridView1','Sort$user_sy_money')" style="color:#000001;">剩余金额</a></th>
                     <th scope="col"><a href="javascript:__doPostBack('GridView1','Sort$beizhu')" style="color:#000001;">备注</a></th>
                     <th scope="col"><a href="javascript:__doPostBack('GridView1','Sort$zc_date')" style="color:#000001;">日期</a></th>
+                    <th scope="col"><a href="javascript:__doPostBack('GridView1','Sort$d_status')" style="color:#000001;">状态</a></th>
                   </tr>
               </thead>
 
@@ -115,6 +116,15 @@ alert('转换金额错误');
 		                  <td style="color:Black;">${withdraw.leftCoin }</td>
 		                  <td style="color:Black;">${withdraw.remark }</td>
 		                  <td style="color:Black;"><fmt:formatDate value="${withdraw.createtime }" pattern="yyyy-MM-dd hh:mm:ss"/></td>
+		                  <td style="color:Black;">
+		                  <c:choose>
+							<c:when test="${withdraw.status==1 }">已处理
+							</c:when>
+							<c:otherwise>
+							未处理
+							</c:otherwise>
+							</c:choose>
+		                  </td>
 		              </tr>
 				</c:when>
 				<c:otherwise>
@@ -124,6 +134,15 @@ alert('转换金额错误');
 		                  <td style="color:Black;">${withdraw.leftCoin }</td>
 		                  <td style="color:Black;">${withdraw.remark }</td>
 		                  <td style="color:Black;"><fmt:formatDate value="${withdraw.createtime }" pattern="yyyy-MM-dd hh:mm:ss"/></td>
+		                  <td style="color:Black;">
+		                  <c:choose>
+							<c:when test="${withdraw.status==1 }">已处理
+							</c:when>
+							<c:otherwise>
+							未处理
+							</c:otherwise>
+							</c:choose>
+		                  </td>
 		              </tr>
 				</c:otherwise>
 				</c:choose>
