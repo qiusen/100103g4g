@@ -123,7 +123,7 @@ public class CashTaxAction extends BaseAction {
 		String passwd3 = this.getRequest().getParameter("passwd3");
 		
 		if(passwd3!=null && MD5Util.stringToMD5(passwd3).equals(member.getPasswd3())){
-			if(coin<0.00 || coin<=member.getCashCoin()){
+			if(coin>0.00 && coin<=member.getCashCoin()){
 				cashTax.setCode(member.getCode());
 				cashTax.setCoin(coin);
 				cashTax.setDealtime(new Date());
